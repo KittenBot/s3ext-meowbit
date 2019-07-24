@@ -1,0 +1,10 @@
+{
+    "name": "meowbit",
+    "version": "1.0.0",
+    "type": "scratch3",
+    "flash": "uf2",
+    "shopLink": "https://item.taobao.com/item.htm?spm=a230r.1.14.6.2ce5448d0pYm0Q&id=586210602413&ns=1&abbucket=5",
+    "extensions": ["meowbit"],
+    "hex": "meowpy.uf2",
+    "image": "meowbit.png"
+}
