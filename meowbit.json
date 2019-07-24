@@ -1,0 +1,219 @@
+{
+  "collapsed": true,
+  "extID": "meowbit",
+  "extName": "Meowbit",
+  "color1Pick": false,
+  "color2Pick": false,
+  "color1": "#4a90e2",
+  "color2": "#4a51e2",
+  "indexJS": null,
+  "menuIcon": "data:image/png;base64,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",
+  "blockIcon": null,
+  "editBlockID": "mb_tft_text",
+  "blocks": [
+    {
+      "opcode": "mb_inittft",
+      "svg": "<svg id=\"src\" xmlns=\"http://www.w3.org/2000/svg\" width=\"132.8203125\" height=\"56\" >\n    %3Cg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20data-id%3D%22r%2FWlPKi%2565)WmO%5BlFML%7D%22%20class%3D%22blocklyDraggable%22%20data-shapes%3D%22stack%22%3E%3Cpath%20class%3D%22blocklyPath%20blocklyBlockBackground%22%20stroke%3D%22%23FF3355%22%20fill%3D%22%23FF6680%22%20fill-opacity%3D%221%22%20d%3D%22m%200%2C4%20A%204%2C4%200%200%2C1%204%2C0%20H%2012%20c%202%2C0%203%2C1%204%2C2%20l%204%2C4%20c%201%2C1%202%2C2%204%2C2%20h%2012%20c%202%2C0%203%2C-1%204%2C-2%20l%204%2C-4%20c%201%2C-1%202%2C-2%204%2C-2%20H%20128.8203125%20a%204%2C4%200%200%2C1%204%2C4%20v%2040%20%20a%204%2C4%200%200%2C1%20-4%2C4%20H%2048%20%20%20c%20-2%2C0%20-3%2C1%20-4%2C2%20l%20-4%2C4%20c%20-1%2C1%20-2%2C2%20-4%2C2%20h%20-12%20c%20-2%2C0%20-3%2C-1%20-4%2C-2%20l%20-4%2C-4%20c%20-1%2C-1%20-2%2C-2%20-4%2C-2%20H%204%20a%204%2C4%200%200%2C1%20-4%2C-4%20z%22%2F%3E%3Cg%20data-argument-type%3D%22text%22%20class%3D%22blocklyEditableText%22%20transform%3D%22translate(48%2C%208)%20%22%20style%3D%22cursor%3A%20text%3B%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%2276.8203125%22%20height%3D%2232%22%20fill%3D%22%23FF3355%22%2F%3E%3Ctext%20class%3D%22blocklyText%20blocklyEditableLabel%22%20x%3D%2238.41015625%22%20y%3D%2218%22%20dominant-baseline%3D%22middle%22%20dy%3D%220%22%20text-anchor%3D%22middle%22%3EInit%C2%A0TFT%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E\n    </svg>",
+      "msg": "Init TFT",
+      "args": [],
+      "mutationText": "<xml><mutation xmlns=\"http://www.w3.org/1999/xhtml\" generateshadows=\"true\" proccode=\"Init TFT\" argumentids=\"[]\" argumentnames=\"[]\" argumentdefaults=\"[]\" warp=\"false\"></mutation></xml>",
+      "type": "func",
+      "script": "mb_inittft (args, util){\n\n  return this.write(`M0 \\n`);\n}\n"
+    },
+    {
+      "opcode": "mb_tft_fill",
+      "svg": "<svg id=\"src\" xmlns=\"http://www.w3.org/2000/svg\" width=\"213.484375\" height=\"56\" >\n    %3Cg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20data-id%3D%22k%2F%40%5BWx%60%5EgTqiiKvv-z%3AU%22%20class%3D%22blocklyDraggable%22%20data-shapes%3D%22stack%22%3E%3Cpath%20class%3D%22blocklyPath%20blocklyBlockBackground%22%20stroke%3D%22%23FF3355%22%20fill%3D%22%23FF6680%22%20fill-opacity%3D%221%22%20d%3D%22m%200%2C4%20A%204%2C4%200%200%2C1%204%2C0%20H%2012%20c%202%2C0%203%2C1%204%2C2%20l%204%2C4%20c%201%2C1%202%2C2%204%2C2%20h%2012%20c%202%2C0%203%2C-1%204%2C-2%20l%204%2C-4%20c%201%2C-1%202%2C-2%204%2C-2%20H%20209.484375%20a%204%2C4%200%200%2C1%204%2C4%20v%2040%20%20a%204%2C4%200%200%2C1%20-4%2C4%20H%2048%20%20%20c%20-2%2C0%20-3%2C1%20-4%2C2%20l%20-4%2C4%20c%20-1%2C1%20-2%2C2%20-4%2C2%20h%20-12%20c%20-2%2C0%20-3%2C-1%20-4%2C-2%20l%20-4%2C-4%20c%20-1%2C-1%20-2%2C-2%20-4%2C-2%20H%204%20a%204%2C4%200%200%2C1%20-4%2C-4%20z%22%2F%3E%3Cg%20data-id%3D%22ba1f%5B.%2CZrE%25U%3AzX!~Csi%22%20data-argument-type%3D%22text%22%20data-shapes%3D%22argument%20round%22%20transform%3D%22translate(126.5859375%2C8)%22%3E%3Cpath%20class%3D%22blocklyPath%20blocklyBlockBackground%22%20stroke%3D%22%23FF3355%22%20fill%3D%22%23FFFFFF%22%20fill-opacity%3D%221%22%20d%3D%22m%200%2C0%20m%2016%2C0%20H%2062.8984375%20a%2016%2016%200%200%201%200%2032%20H%2016%20a%2016%2016%200%200%201%200%20-32%20z%22%2F%3E%3Cg%20class%3D%22blocklyEditableText%22%20transform%3D%22translate(8%2C%200)%20%22%20style%3D%22cursor%3A%20text%3B%22%3E%3Ctext%20class%3D%22blocklyText%22%20x%3D%2231.44921875%22%20y%3D%2218%22%20dominant-baseline%3D%22middle%22%20dy%3D%220%22%20text-anchor%3D%22middle%22%3ECOLOR%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3Cg%20data-argument-type%3D%22text%22%20class%3D%22blocklyEditableText%22%20transform%3D%22translate(48%2C%208)%20%22%20style%3D%22cursor%3A%20text%3B%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%2270.5859375%22%20height%3D%2232%22%20fill%3D%22%23FF3355%22%2F%3E%3Ctext%20class%3D%22blocklyText%20blocklyEditableLabel%22%20x%3D%2235.29296875%22%20y%3D%2218%22%20dominant-baseline%3D%22middle%22%20dy%3D%220%22%20text-anchor%3D%22middle%22%3ETFT%C2%A0fill%3C%2Ftext%3E%3C%2Fg%3E%3Cpath%20class%3D%22blocklyPath%22%20style%3D%22visibility%3A%20hidden%22%20d%3D%22%22%20fill%3D%22%23FF3355%22%2F%3E%3C%2Fg%3E\n    </svg>",
+      "msg": "TFT fill %1",
+      "args": [
+        {
+          "argType": "STRING",
+          "placeholder": "COLOR",
+          "shadowType": "text",
+          "fieldType": "TEXT",
+          "json": {
+            "type": "input_value",
+            "name": "COLOR"
+          }
+        }
+      ],
+      "mutationText": "<xml><mutation xmlns=\"http://www.w3.org/1999/xhtml\" generateshadows=\"true\" proccode=\"TFT fill %s\" argumentids=\"[&quot;`RI1U~7nl@2md$_AiT5F&quot;]\" argumentnames=\"[&quot;COLOR&quot;]\" argumentdefaults=\"[&quot;&quot;]\" warp=\"false\"></mutation></xml>",
+      "type": "func"
+    },
+    {
+      "opcode": "mb_tft_pix",
+      "svg": "<svg id=\"src\" xmlns=\"http://www.w3.org/2000/svg\" width=\"242.15625\" height=\"56\" >\n    %3Cg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20data-id%3D%22%3D%7BgqX%7B%2BAVI%2FA%5EXB%3A%40P84%22%20class%3D%22blocklyDraggable%20blocklySelected%22%20data-shapes%3D%22stack%22%3E%3Cpath%20class%3D%22blocklyPath%20blocklyBlockBackground%22%20stroke%3D%22%23FF3355%22%20fill%3D%22%23FF6680%22%20fill-opacity%3D%221%22%20d%3D%22m%200%2C4%20A%204%2C4%200%200%2C1%204%2C0%20H%2012%20c%202%2C0%203%2C1%204%2C2%20l%204%2C4%20c%201%2C1%202%2C2%204%2C2%20h%2012%20c%202%2C0%203%2C-1%204%2C-2%20l%204%2C-4%20c%201%2C-1%202%2C-2%204%2C-2%20H%20238.15625%20a%204%2C4%200%200%2C1%204%2C4%20v%2040%20%20a%204%2C4%200%200%2C1%20-4%2C4%20H%2048%20%20%20c%20-2%2C0%20-3%2C1%20-4%2C2%20l%20-4%2C4%20c%20-1%2C1%20-2%2C2%20-4%2C2%20h%20-12%20c%20-2%2C0%20-3%2C-1%20-4%2C-2%20l%20-4%2C-4%20c%20-1%2C-1%20-2%2C-2%20-4%2C-2%20H%204%20a%204%2C4%200%200%2C1%20-4%2C-4%20z%22%2F%3E%3Cg%20data-id%3D%22GI%5DpG0%2BMH2~%60Wpu2jx%23!%22%20data-argument-type%3D%22text%22%20data-shapes%3D%22argument%20round%22%20transform%3D%22translate(146.15625%2C8)%22%3E%3Cpath%20class%3D%22blocklyPath%20blocklyBlockBackground%22%20stroke%3D%22%23FF3355%22%20fill%3D%22%23FFFFFF%22%20fill-opacity%3D%221%22%20d%3D%22m%200%2C0%20m%2016%2C0%20H%2024%20a%2016%2016%200%200%201%200%2032%20H%2016%20a%2016%2016%200%200%201%200%20-32%20z%22%2F%3E%3Cg%20class%3D%22blocklyEditableText%22%20transform%3D%22translate(8%2C%200)%20%22%20style%3D%22cursor%3A%20text%3B%22%3E%3Ctext%20class%3D%22blocklyText%22%20x%3D%2212%22%20y%3D%2218%22%20dominant-baseline%3D%22middle%22%20dy%3D%220%22%20text-anchor%3D%22middle%22%3EX%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3Cg%20data-id%3D%22vMCOIm%7B%3Bw%25vYOXK5Ycp%25%22%20data-argument-type%3D%22text%22%20data-shapes%3D%22argument%20round%22%20transform%3D%22translate(194.15625%2C8)%22%3E%3Cpath%20class%3D%22blocklyPath%20blocklyBlockBackground%22%20stroke%3D%22%23FF3355%22%20fill%3D%22%23FFFFFF%22%20fill-opacity%3D%221%22%20d%3D%22m%200%2C0%20m%2016%2C0%20H%2024%20a%2016%2016%200%200%201%200%2032%20H%2016%20a%2016%2016%200%200%201%200%20-32%20z%22%2F%3E%3Cg%20class%3D%22blocklyEditableText%22%20transform%3D%22translate(8%2C%200)%20%22%20style%3D%22cursor%3A%20text%3B%22%3E%3Ctext%20class%3D%22blocklyText%22%20x%3D%2212%22%20y%3D%2218%22%20dominant-baseline%3D%22middle%22%20dy%3D%220%22%20text-anchor%3D%22middle%22%3EY%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3Cg%20data-argument-type%3D%22text%22%20class%3D%22blocklyEditableText%22%20transform%3D%22translate(48%2C%208)%20%22%20style%3D%22cursor%3A%20text%3B%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%2290.15625%22%20height%3D%2232%22%20fill%3D%22%23FF3355%22%2F%3E%3Ctext%20class%3D%22blocklyText%20blocklyEditableLabel%22%20x%3D%2245.078125%22%20y%3D%2218%22%20dominant-baseline%3D%22middle%22%20dy%3D%220%22%20text-anchor%3D%22middle%22%3ETFT%C2%A0Pixel%3C%2Ftext%3E%3C%2Fg%3E%3Cpath%20class%3D%22blocklyPath%22%20style%3D%22visibility%3A%20hidden%22%20d%3D%22%22%20fill%3D%22%23FF3355%22%2F%3E%3Cpath%20class%3D%22blocklyPath%22%20style%3D%22visibility%3A%20hidden%22%20d%3D%22%22%20fill%3D%22%23FF3355%22%2F%3E%3C%2Fg%3E\n    </svg>",
+      "msg": "TFT Pixel %1 %2",
+      "args": [
+        {
+          "argType": "STRING",
+          "placeholder": "X",
+          "shadowType": "text",
+          "fieldType": "TEXT",
+          "json": {
+            "type": "input_value",
+            "name": "X"
+          }
+        },
+        {
+          "argType": "STRING",
+          "placeholder": "Y",
+          "shadowType": "text",
+          "fieldType": "TEXT",
+          "json": {
+            "type": "input_value",
+            "name": "Y"
+          }
+        }
+      ],
+      "mutationText": "<xml><mutation xmlns=\"http://www.w3.org/1999/xhtml\" generateshadows=\"true\" proccode=\"TFT Pixel %s %s\" argumentids=\"[&quot;=}(naw#R-R=-]gkenwz=&quot;,&quot;Bl@$O2PZGx5r$v]LHAP0&quot;]\" argumentnames=\"[&quot;X&quot;,&quot;Y&quot;]\" argumentdefaults=\"[&quot;&quot;,&quot;&quot;]\" warp=\"false\"></mutation></xml>",
+      "type": "func"
+    },
+    {
+      "opcode": "mb_tft_line",
+      "svg": "<svg id=\"src\" xmlns=\"http://www.w3.org/2000/svg\" width=\"375.3359375\" height=\"56\" >\n    %3Cg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20data-id%3D%22%2FM%3F%5D%3Dp0Z%2CDKi~pvpK4L%25%22%20class%3D%22blocklyDraggable%22%20data-shapes%3D%22stack%22%3E%3Cpath%20class%3D%22blocklyPath%20blocklyBlockBackground%22%20stroke%3D%22%23FF3355%22%20fill%3D%22%23FF6680%22%20fill-opacity%3D%221%22%20d%3D%22m%200%2C4%20A%204%2C4%200%200%2C1%204%2C0%20H%2012%20c%202%2C0%203%2C1%204%2C2%20l%204%2C4%20c%201%2C1%202%2C2%204%2C2%20h%2012%20c%202%2C0%203%2C-1%204%2C-2%20l%204%2C-4%20c%201%2C-1%202%2C-2%204%2C-2%20H%20371.3359375%20a%204%2C4%200%200%2C1%204%2C4%20v%2040%20%20a%204%2C4%200%200%2C1%20-4%2C4%20H%2048%20%20%20c%20-2%2C0%20-3%2C1%20-4%2C2%20l%20-4%2C4%20c%20-1%2C1%20-2%2C2%20-4%2C2%20h%20-12%20c%20-2%2C0%20-3%2C-1%20-4%2C-2%20l%20-4%2C-4%20c%20-1%2C-1%20-2%2C-2%20-4%2C-2%20H%204%20a%204%2C4%200%200%2C1%20-4%2C-4%20z%22%2F%3E%3Cg%20data-id%3D%22O%7D%2C%25e%7Bop86au-F7mOYc8%22%20data-argument-type%3D%22text%22%20data-shapes%3D%22argument%20round%22%20transform%3D%22translate(141.7265625%2C8)%22%3E%3Cpath%20class%3D%22blocklyPath%20blocklyBlockBackground%22%20stroke%3D%22%23FF3355%22%20fill%3D%22%23FFFFFF%22%20fill-opacity%3D%221%22%20d%3D%22m%200%2C0%20m%2016%2C0%20H%2025.5703125%20a%2016%2016%200%200%201%200%2032%20H%2016%20a%2016%2016%200%200%201%200%20-32%20z%22%2F%3E%3Cg%20class%3D%22blocklyEditableText%22%20transform%3D%22translate(8%2C%200)%20%22%20style%3D%22cursor%3A%20text%3B%22%3E%3Ctext%20class%3D%22blocklyText%22%20x%3D%2212.78515625%22%20y%3D%2218%22%20dominant-baseline%3D%22middle%22%20dy%3D%220%22%20text-anchor%3D%22middle%22%3EX0%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3Cg%20data-id%3D%22sUV0y%242KwqMx0%60c%60%3F2To%22%20data-argument-type%3D%22text%22%20data-shapes%3D%22argument%20round%22%20transform%3D%22translate(191.296875%2C8)%22%3E%3Cpath%20class%3D%22blocklyPath%20blocklyBlockBackground%22%20stroke%3D%22%23FF3355%22%20fill%3D%22%23FFFFFF%22%20fill-opacity%3D%221%22%20d%3D%22m%200%2C0%20m%2016%2C0%20H%2025.5703125%20a%2016%2016%200%200%201%200%2032%20H%2016%20a%2016%2016%200%200%201%200%20-32%20z%22%2F%3E%3Cg%20class%3D%22blocklyEditableText%22%20transform%3D%22translate(8%2C%200)%20%22%20style%3D%22cursor%3A%20text%3B%22%3E%3Ctext%20class%3D%22blocklyText%22%20x%3D%2212.78515625%22%20y%3D%2218%22%20dominant-baseline%3D%22middle%22%20dy%3D%220%22%20text-anchor%3D%22middle%22%3EY0%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3Cg%20data-id%3D%22.%2BBbujDg8et%24Lj_56d6%23%22%20data-argument-type%3D%22text%22%20data-shapes%3D%22argument%20round%22%20transform%3D%22translate(276.1953125%2C8)%22%3E%3Cpath%20class%3D%22blocklyPath%20blocklyBlockBackground%22%20stroke%3D%22%23FF3355%22%20fill%3D%22%23FFFFFF%22%20fill-opacity%3D%221%22%20d%3D%22m%200%2C0%20m%2016%2C0%20H%2025.5703125%20a%2016%2016%200%200%201%200%2032%20H%2016%20a%2016%2016%200%200%201%200%20-32%20z%22%2F%3E%3Cg%20class%3D%22blocklyEditableText%22%20transform%3D%22translate(8%2C%200)%20%22%20style%3D%22cursor%3A%20text%3B%22%3E%3Ctext%20class%3D%22blocklyText%22%20x%3D%2212.78515625%22%20y%3D%2218%22%20dominant-baseline%3D%22middle%22%20dy%3D%220%22%20text-anchor%3D%22middle%22%3EX1%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3Cg%20data-id%3D%22%23Z366jMJ%5D%3Axc%23c(b!bmo%22%20data-argument-type%3D%22text%22%20data-shapes%3D%22argument%20round%22%20transform%3D%22translate(325.765625%2C8)%22%3E%3Cpath%20class%3D%22blocklyPath%20blocklyBlockBackground%22%20stroke%3D%22%23FF3355%22%20fill%3D%22%23FFFFFF%22%20fill-opacity%3D%221%22%20d%3D%22m%200%2C0%20m%2016%2C0%20H%2025.5703125%20a%2016%2016%200%200%201%200%2032%20H%2016%20a%2016%2016%200%200%201%200%20-32%20z%22%2F%3E%3Cg%20class%3D%22blocklyEditableText%22%20transform%3D%22translate(8%2C%200)%20%22%20style%3D%22cursor%3A%20text%3B%22%3E%3Ctext%20class%3D%22blocklyText%22%20x%3D%2212.78515625%22%20y%3D%2218%22%20dominant-baseline%3D%22middle%22%20dy%3D%220%22%20text-anchor%3D%22middle%22%3EY1%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3Cg%20data-argument-type%3D%22text%22%20class%3D%22blocklyEditableText%22%20transform%3D%22translate(48%2C%208)%20%22%20style%3D%22cursor%3A%20text%3B%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%2285.7265625%22%20height%3D%2232%22%20fill%3D%22%23FF3355%22%2F%3E%3Ctext%20class%3D%22blocklyText%20blocklyEditableLabel%22%20x%3D%2242.86328125%22%20y%3D%2218%22%20dominant-baseline%3D%22middle%22%20dy%3D%220%22%20text-anchor%3D%22middle%22%3ETFT%C2%A0Line%3C%2Ftext%3E%3C%2Fg%3E%3Cpath%20class%3D%22blocklyPath%22%20style%3D%22visibility%3A%20hidden%22%20d%3D%22%22%20fill%3D%22%23FF3355%22%2F%3E%3Cpath%20class%3D%22blocklyPath%22%20style%3D%22visibility%3A%20hidden%22%20d%3D%22%22%20fill%3D%22%23FF3355%22%2F%3E%3Cg%20data-argument-type%3D%22text%22%20class%3D%22blocklyEditableText%22%20transform%3D%22translate(240.8671875%2C%208)%20%22%20style%3D%22cursor%3A%20text%3B%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%2227.328125%22%20height%3D%2232%22%20fill%3D%22%23FF3355%22%2F%3E%3Ctext%20class%3D%22blocklyText%20blocklyEditableLabel%22%20x%3D%2213.6640625%22%20y%3D%2218%22%20dominant-baseline%3D%22middle%22%20dy%3D%220%22%20text-anchor%3D%22middle%22%3E-%3C%2Ftext%3E%3C%2Fg%3E%3Cpath%20class%3D%22blocklyPath%22%20style%3D%22visibility%3A%20hidden%22%20d%3D%22%22%20fill%3D%22%23FF3355%22%2F%3E%3Cpath%20class%3D%22blocklyPath%22%20style%3D%22visibility%3A%20hidden%22%20d%3D%22%22%20fill%3D%22%23FF3355%22%2F%3E%3C%2Fg%3E\n    </svg>",
+      "msg": "TFT Line %1 %2 - %3 %4",
+      "args": [
+        {
+          "argType": "STRING",
+          "placeholder": "X0",
+          "shadowType": "text",
+          "fieldType": "TEXT",
+          "json": {
+            "type": "input_value",
+            "name": "X0"
+          }
+        },
+        {
+          "argType": "STRING",
+          "placeholder": "Y0",
+          "shadowType": "text",
+          "fieldType": "TEXT",
+          "json": {
+            "type": "input_value",
+            "name": "Y0"
+          }
+        },
+        {
+          "argType": "STRING",
+          "placeholder": "X1",
+          "shadowType": "text",
+          "fieldType": "TEXT",
+          "json": {
+            "type": "input_value",
+            "name": "X1"
+          }
+        },
+        {
+          "argType": "STRING",
+          "placeholder": "Y1",
+          "shadowType": "text",
+          "fieldType": "TEXT",
+          "json": {
+            "type": "input_value",
+            "name": "Y1"
+          }
+        }
+      ],
+      "mutationText": "<xml><mutation xmlns=\"http://www.w3.org/1999/xhtml\" generateshadows=\"true\" proccode=\"TFT Line %s %s - %s %s\" argumentids=\"[&quot;k(QOQd/2rug3F078a~,$&quot;,&quot;x./l~q4/IIeKRUj4}#Jn&quot;,&quot;Xo2d#ppEq,*CeN@lT-fK&quot;,&quot;]?3b=G;kJ02t$htz+.CC&quot;]\" argumentnames=\"[&quot;X0&quot;,&quot;Y0&quot;,&quot;X1&quot;,&quot;Y1&quot;]\" argumentdefaults=\"[&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;]\" warp=\"false\"></mutation></xml>",
+      "type": "func"
+    },
+    {
+      "opcode": "mb_tft_rect",
+      "svg": "<svg id=\"src\" xmlns=\"http://www.w3.org/2000/svg\" width=\"336.375\" height=\"56\" >\n    %3Cg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20data-id%3D%22%24HlLdnH%7Dy%2BG%2BqQq%60Pe%23i%22%20class%3D%22blocklyDraggable%22%20data-shapes%3D%22stack%22%3E%3Cpath%20class%3D%22blocklyPath%20blocklyBlockBackground%22%20stroke%3D%22%23FF3355%22%20fill%3D%22%23FF6680%22%20fill-opacity%3D%221%22%20d%3D%22m%200%2C4%20A%204%2C4%200%200%2C1%204%2C0%20H%2012%20c%202%2C0%203%2C1%204%2C2%20l%204%2C4%20c%201%2C1%202%2C2%204%2C2%20h%2012%20c%202%2C0%203%2C-1%204%2C-2%20l%204%2C-4%20c%201%2C-1%202%2C-2%204%2C-2%20H%20332.375%20a%204%2C4%200%200%2C1%204%2C4%20v%2040%20%20a%204%2C4%200%200%2C1%20-4%2C4%20H%2048%20%20%20c%20-2%2C0%20-3%2C1%20-4%2C2%20l%20-4%2C4%20c%20-1%2C1%20-2%2C2%20-4%2C2%20h%20-12%20c%20-2%2C0%20-3%2C-1%20-4%2C-2%20l%20-4%2C-4%20c%20-1%2C-1%20-2%2C-2%20-4%2C-2%20H%204%20a%204%2C4%200%200%2C1%20-4%2C-4%20z%22%2F%3E%3Cg%20data-id%3D%22vEi)fI0Hb7%3AiTYjX2POn%22%20data-argument-type%3D%22text%22%20data-shapes%3D%22argument%20round%22%20transform%3D%22translate(144.375%2C8)%22%3E%3Cpath%20class%3D%22blocklyPath%20blocklyBlockBackground%22%20stroke%3D%22%23FF3355%22%20fill%3D%22%23FFFFFF%22%20fill-opacity%3D%221%22%20d%3D%22m%200%2C0%20m%2016%2C0%20H%2024%20a%2016%2016%200%200%201%200%2032%20H%2016%20a%2016%2016%200%200%201%200%20-32%20z%22%2F%3E%3Cg%20class%3D%22blocklyEditableText%22%20transform%3D%22translate(8%2C%200)%20%22%20style%3D%22cursor%3A%20text%3B%22%3E%3Ctext%20class%3D%22blocklyText%22%20x%3D%2212%22%20y%3D%2218%22%20dominant-baseline%3D%22middle%22%20dy%3D%220%22%20text-anchor%3D%22middle%22%3EX%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3Cg%20data-id%3D%222%5Dh%23Qgy*4)%7DPw%2F-DQwTN%22%20data-argument-type%3D%22text%22%20data-shapes%3D%22argument%20round%22%20transform%3D%22translate(192.375%2C8)%22%3E%3Cpath%20class%3D%22blocklyPath%20blocklyBlockBackground%22%20stroke%3D%22%23FF3355%22%20fill%3D%22%23FFFFFF%22%20fill-opacity%3D%221%22%20d%3D%22m%200%2C0%20m%2016%2C0%20H%2024%20a%2016%2016%200%200%201%200%2032%20H%2016%20a%2016%2016%200%200%201%200%20-32%20z%22%2F%3E%3Cg%20class%3D%22blocklyEditableText%22%20transform%3D%22translate(8%2C%200)%20%22%20style%3D%22cursor%3A%20text%3B%22%3E%3Ctext%20class%3D%22blocklyText%22%20x%3D%2212%22%20y%3D%2218%22%20dominant-baseline%3D%22middle%22%20dy%3D%220%22%20text-anchor%3D%22middle%22%3EY%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3Cg%20data-id%3D%22V%40)B3%40!s-w3%7Br%3Dk%5EK%5BzC%22%20data-argument-type%3D%22text%22%20data-shapes%3D%22argument%20round%22%20transform%3D%22translate(240.375%2C8)%22%3E%3Cpath%20class%3D%22blocklyPath%20blocklyBlockBackground%22%20stroke%3D%22%23FF3355%22%20fill%3D%22%23FFFFFF%22%20fill-opacity%3D%221%22%20d%3D%22m%200%2C0%20m%2016%2C0%20H%2024%20a%2016%2016%200%200%201%200%2032%20H%2016%20a%2016%2016%200%200%201%200%20-32%20z%22%2F%3E%3Cg%20class%3D%22blocklyEditableText%22%20transform%3D%22translate(8%2C%200)%20%22%20style%3D%22cursor%3A%20text%3B%22%3E%3Ctext%20class%3D%22blocklyText%22%20x%3D%2212%22%20y%3D%2218%22%20dominant-baseline%3D%22middle%22%20dy%3D%220%22%20text-anchor%3D%22middle%22%3EW%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3Cg%20data-id%3D%22*Oy%3F(%5E%60TpQC%3FsTGheeR%2F%22%20data-argument-type%3D%22text%22%20data-shapes%3D%22argument%20round%22%20transform%3D%22translate(288.375%2C8)%22%3E%3Cpath%20class%3D%22blocklyPath%20blocklyBlockBackground%22%20stroke%3D%22%23FF3355%22%20fill%3D%22%23FFFFFF%22%20fill-opacity%3D%221%22%20d%3D%22m%200%2C0%20m%2016%2C0%20H%2024%20a%2016%2016%200%200%201%200%2032%20H%2016%20a%2016%2016%200%200%201%200%20-32%20z%22%2F%3E%3Cg%20class%3D%22blocklyEditableText%22%20transform%3D%22translate(8%2C%200)%20%22%20style%3D%22cursor%3A%20text%3B%22%3E%3Ctext%20class%3D%22blocklyText%22%20x%3D%2212%22%20y%3D%2218%22%20dominant-baseline%3D%22middle%22%20dy%3D%220%22%20text-anchor%3D%22middle%22%3EH%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3Cg%20data-argument-type%3D%22text%22%20class%3D%22blocklyEditableText%22%20transform%3D%22translate(48%2C%208)%20%22%20style%3D%22cursor%3A%20text%3B%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%2288.375%22%20height%3D%2232%22%20fill%3D%22%23FF3355%22%2F%3E%3Ctext%20class%3D%22blocklyText%20blocklyEditableLabel%22%20x%3D%2244.1875%22%20y%3D%2218%22%20dominant-baseline%3D%22middle%22%20dy%3D%220%22%20text-anchor%3D%22middle%22%3ETFT%C2%A0Rect%3C%2Ftext%3E%3C%2Fg%3E%3Cpath%20class%3D%22blocklyPath%22%20style%3D%22visibility%3A%20hidden%22%20d%3D%22%22%20fill%3D%22%23FF3355%22%2F%3E%3Cpath%20class%3D%22blocklyPath%22%20style%3D%22visibility%3A%20hidden%22%20d%3D%22%22%20fill%3D%22%23FF3355%22%2F%3E%3Cpath%20class%3D%22blocklyPath%22%20style%3D%22visibility%3A%20hidden%22%20d%3D%22%22%20fill%3D%22%23FF3355%22%2F%3E%3Cpath%20class%3D%22blocklyPath%22%20style%3D%22visibility%3A%20hidden%22%20d%3D%22%22%20fill%3D%22%23FF3355%22%2F%3E%3C%2Fg%3E\n    </svg>",
+      "msg": "TFT Rect %1 %2 %3 %4",
+      "args": [
+        {
+          "argType": "STRING",
+          "placeholder": "X",
+          "shadowType": "text",
+          "fieldType": "TEXT",
+          "json": {
+            "type": "input_value",
+            "name": "X"
+          }
+        },
+        {
+          "argType": "STRING",
+          "placeholder": "Y",
+          "shadowType": "text",
+          "fieldType": "TEXT",
+          "json": {
+            "type": "input_value",
+            "name": "Y"
+          }
+        },
+        {
+          "argType": "STRING",
+          "placeholder": "W",
+          "shadowType": "text",
+          "fieldType": "TEXT",
+          "json": {
+            "type": "input_value",
+            "name": "W"
+          }
+        },
+        {
+          "argType": "STRING",
+          "placeholder": "H",
+          "shadowType": "text",
+          "fieldType": "TEXT",
+          "json": {
+            "type": "input_value",
+            "name": "H"
+          }
+        }
+      ],
+      "mutationText": "<xml><mutation xmlns=\"http://www.w3.org/1999/xhtml\" generateshadows=\"true\" proccode=\"TFT Rect %s %s %s %s\" argumentids=\"[&quot;}e7xI.**/$`w*3bxw!|v&quot;,&quot;v+{s3EA^G-puooF~z4Z$&quot;,&quot;AgUjT1OkWz$CbdT(L202&quot;,&quot;M;-Sqr`(]^,Gr|C/n.7]&quot;]\" argumentnames=\"[&quot;X&quot;,&quot;Y&quot;,&quot;W&quot;,&quot;H&quot;]\" argumentdefaults=\"[&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;]\" warp=\"false\"></mutation></xml>",
+      "type": "func"
+    },
+    {
+      "opcode": "mb_tft_text",
+      "svg": "<svg id=\"src\" xmlns=\"http://www.w3.org/2000/svg\" width=\"293.484375\" height=\"56\" >\n    %3Cg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20data-id%3D%22%7BO9K0sigc9%7Db%5B%3B%23%2F%5BdkJ%22%20class%3D%22blocklyDraggable%22%20data-shapes%3D%22stack%22%3E%3Cpath%20class%3D%22blocklyPath%20blocklyBlockBackground%22%20stroke%3D%22%23FF3355%22%20fill%3D%22%23FF6680%22%20fill-opacity%3D%221%22%20d%3D%22m%200%2C4%20A%204%2C4%200%200%2C1%204%2C0%20H%2012%20c%202%2C0%203%2C1%204%2C2%20l%204%2C4%20c%201%2C1%202%2C2%204%2C2%20h%2012%20c%202%2C0%203%2C-1%204%2C-2%20l%204%2C-4%20c%201%2C-1%202%2C-2%204%2C-2%20H%20289.484375%20a%204%2C4%200%200%2C1%204%2C4%20v%2040%20%20a%204%2C4%200%200%2C1%20-4%2C4%20H%2048%20%20%20c%20-2%2C0%20-3%2C1%20-4%2C2%20l%20-4%2C4%20c%20-1%2C1%20-2%2C2%20-4%2C2%20h%20-12%20c%20-2%2C0%20-3%2C-1%20-4%2C-2%20l%20-4%2C-4%20c%20-1%2C-1%20-2%2C-2%20-4%2C-2%20H%204%20a%204%2C4%200%200%2C1%20-4%2C-4%20z%22%2F%3E%3Cg%20data-id%3D%22COeI)%60N%24%25OVG)d3%7C5VcO%22%20data-argument-type%3D%22text%22%20data-shapes%3D%22argument%20round%22%20transform%3D%22translate(137.265625%2C8)%22%3E%3Cpath%20class%3D%22blocklyPath%20blocklyBlockBackground%22%20stroke%3D%22%23FF3355%22%20fill%3D%22%23FFFFFF%22%20fill-opacity%3D%221%22%20d%3D%22m%200%2C0%20m%2016%2C0%20H%2036.21875%20a%2016%2016%200%200%201%200%2032%20H%2016%20a%2016%2016%200%200%201%200%20-32%20z%22%2F%3E%3Cg%20class%3D%22blocklyEditableText%22%20transform%3D%22translate(8%2C%200)%20%22%20style%3D%22cursor%3A%20text%3B%22%3E%3Ctext%20class%3D%22blocklyText%22%20x%3D%2218.109375%22%20y%3D%2218%22%20dominant-baseline%3D%22middle%22%20dy%3D%220%22%20text-anchor%3D%22middle%22%3ETXT%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3Cg%20data-id%3D%226%7C3%7Cm1R%7D%3FMahiG%5El%60~Y!%22%20data-argument-type%3D%22text%22%20data-shapes%3D%22argument%20round%22%20transform%3D%22translate(197.484375%2C8)%22%3E%3Cpath%20class%3D%22blocklyPath%20blocklyBlockBackground%22%20stroke%3D%22%23FF3355%22%20fill%3D%22%23FFFFFF%22%20fill-opacity%3D%221%22%20d%3D%22m%200%2C0%20m%2016%2C0%20H%2024%20a%2016%2016%200%200%201%200%2032%20H%2016%20a%2016%2016%200%200%201%200%20-32%20z%22%2F%3E%3Cg%20class%3D%22blocklyEditableText%22%20transform%3D%22translate(8%2C%200)%20%22%20style%3D%22cursor%3A%20text%3B%22%3E%3Ctext%20class%3D%22blocklyText%22%20x%3D%2212%22%20y%3D%2218%22%20dominant-baseline%3D%22middle%22%20dy%3D%220%22%20text-anchor%3D%22middle%22%3EX%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3Cg%20data-id%3D%22%60.8d*HUH%3D3%5Eb06aV%2F%23%25)%22%20data-argument-type%3D%22text%22%20data-shapes%3D%22argument%20round%22%20transform%3D%22translate(245.484375%2C8)%22%3E%3Cpath%20class%3D%22blocklyPath%20blocklyBlockBackground%22%20stroke%3D%22%23FF3355%22%20fill%3D%22%23FFFFFF%22%20fill-opacity%3D%221%22%20d%3D%22m%200%2C0%20m%2016%2C0%20H%2024%20a%2016%2016%200%200%201%200%2032%20H%2016%20a%2016%2016%200%200%201%200%20-32%20z%22%2F%3E%3Cg%20class%3D%22blocklyEditableText%22%20transform%3D%22translate(8%2C%200)%20%22%20style%3D%22cursor%3A%20text%3B%22%3E%3Ctext%20class%3D%22blocklyText%22%20x%3D%2212%22%20y%3D%2218%22%20dominant-baseline%3D%22middle%22%20dy%3D%220%22%20text-anchor%3D%22middle%22%3EY%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3Cg%20data-argument-type%3D%22text%22%20class%3D%22blocklyEditableText%22%20transform%3D%22translate(48%2C%208)%20%22%20style%3D%22cursor%3A%20text%3B%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%2281.265625%22%20height%3D%2232%22%20fill%3D%22%23FF3355%22%2F%3E%3Ctext%20class%3D%22blocklyText%20blocklyEditableLabel%22%20x%3D%2240.6328125%22%20y%3D%2218%22%20dominant-baseline%3D%22middle%22%20dy%3D%220%22%20text-anchor%3D%22middle%22%3ETFT%C2%A0text%3C%2Ftext%3E%3C%2Fg%3E%3Cpath%20class%3D%22blocklyPath%22%20style%3D%22visibility%3A%20hidden%22%20d%3D%22%22%20fill%3D%22%23FF3355%22%2F%3E%3Cpath%20class%3D%22blocklyPath%22%20style%3D%22visibility%3A%20hidden%22%20d%3D%22%22%20fill%3D%22%23FF3355%22%2F%3E%3Cpath%20class%3D%22blocklyPath%22%20style%3D%22visibility%3A%20hidden%22%20d%3D%22%22%20fill%3D%22%23FF3355%22%2F%3E%3C%2Fg%3E\n    </svg>",
+      "msg": "TFT text %1 %2 %3",
+      "args": [
+        {
+          "argType": "STRING",
+          "placeholder": "TXT",
+          "shadowType": "text",
+          "fieldType": "TEXT",
+          "json": {
+            "type": "input_value",
+            "name": "TXT"
+          }
+        },
+        {
+          "argType": "STRING",
+          "placeholder": "X",
+          "shadowType": "text",
+          "fieldType": "TEXT",
+          "json": {
+            "type": "input_value",
+            "name": "X"
+          }
+        },
+        {
+          "argType": "STRING",
+          "placeholder": "Y",
+          "shadowType": "text",
+          "fieldType": "TEXT",
+          "json": {
+            "type": "input_value",
+            "name": "Y"
+          }
+        }
+      ],
+      "mutationText": "<xml><mutation xmlns=\"http://www.w3.org/1999/xhtml\" generateshadows=\"true\" proccode=\"TFT text %s %s %s\" argumentids=\"[&quot;E.**CVyJU^g@#:#b.gsD&quot;,&quot;Ng[rTH*v|mL)lNPK_b-;&quot;,&quot;obL:!LL2A}]JOgdt.2,p&quot;]\" argumentnames=\"[&quot;TXT&quot;,&quot;X&quot;,&quot;Y&quot;]\" argumentdefaults=\"[&quot;&quot;,&quot;&quot;,&quot;&quot;]\" warp=\"false\"></mutation></xml>",
+      "type": "func"
+    }
+  ],
+  "menus": [],
+  "addBlockType": "func",
+  "showMutation": false,
+  "blockScript": null,
+  "genOption": [
+    "micropython"
+  ],
+  "genHeadScript": null,
+  "blockGenerator": null,
+  "isShowCodePreview": false
+}
