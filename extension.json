@@ -12,5 +12,10 @@
     "shopLink": "https://item.taobao.com/item.htm?spm=a230r.1.14.6.2ce5448d0pYm0Q&id=586210602413&ns=1&abbucket=5",
     "extensions": ["meowbit"],
     "hex": "meowpy.uf2",
+    "micropyGenConfig": {
+        "imports": {
+            "meow": "from time import sleep\nfrom pyb import *\n"
+        }
+    },
     "image": "meowbit.png"
 }
