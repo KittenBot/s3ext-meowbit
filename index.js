@@ -327,11 +327,72 @@ class meowbit{
           gen: {
             micropy: this.tftRedrawGen
           }
-        }
+        },
+        '---',
+        {
+          opcode: 'mb_pin_mode',
+          blockType: BlockType.COMMAND,
+          text: 'Pin [PIN] mode[MODE]',
+          arguments: {
+            PIN: {
+              type: ArgumentType.STRING,
+              menu: 'PINS',
+              defaultValue: 'A0'
+            },
+            MODE: {
+              type: ArgumentType.NUMBER,
+              menu: 'PINMODE',
+              defaultValue: 'OUT'
+            }
+          },
+          func: 'noop',
+          gen: {
+            micropy: this.pinModeGen
+          }
+        },
+        {
+          opcode: 'mb_pin_write',
+          blockType: BlockType.COMMAND,
+          text: 'Pin [PIN] write [LVL]',
+          func: 'noop',
+          arguments: {
+            PIN: {
+              type: ArgumentType.STRING,
+              menu: 'PINS',
+              defaultValue: 'A0'
+            },
+            LVL: {
+              type: ArgumentType.NUMBER,
+              menu: 'ONOFF',
+              defaultValue: 'on'
+            }
+          },
+          gen: {
+            micropy: this.pinWriteGen
+          }
+        },
+        {
+          opcode: 'mb_pin_read',
+          blockType: BlockType.BOOLEAN,
+          text: 'Pin [PIN] level',
+          func: 'noop',
+          arguments: {
+            PIN: {
+              type: ArgumentType.STRING,
+              menu: 'PINS',
+              defaultValue: 'A0'
+            }
+          },
+          gen: {
+            micropy: this.pinReadGen
+          }
+        },
       ],
       menus: {
         LEDS: ['1', '2'],
         ONOFF: ['on', 'off'],
+        PINS: ['A3', 'A0', 'A4', 'D4', 'D9', 'D2', 'A1', 'A2', 'PC6', 'A5', 'D3', 'D0', 'D1'],
+        PINMODE: ['OUT', 'IN']
 
       }
     }
@@ -434,6 +495,31 @@ class meowbit{
   tftRedrawGen (gen, block){
     tftCommon(gen);
     return 'tft.show(fb)\n';
+  }
+
+  pinModeGen (gen, block){
+    const pin = gen.valueToCode(block, 'PIN')
+    const mode = gen.valueToCode(block, 'MODE')
+    if (mode === 'OUT'){
+      gen.variables_[`mb_${pin}`] = `p_${pin} = Pin('${pin}', Pin.OUT_PP)\n`;
+    } else {
+      gen.variables_[`mb_${pin}`] = `p_${pin} = Pin('${pin}', Pin.IN, Pin.PULL_UP)\n`;
+    }
+  }
+
+  pinWriteGen (gen, block){
+    const pin = gen.valueToCode(block, 'PIN')
+    const lvl = gen.valueToCode(block, 'LVL')
+    if (lvl === 'on'){
+      return `p_${pin}.high()\n`
+    } else {
+      return `p_${pin}.low()\n`
+    }
+  }
+
+  pinReadGen (gen, block){  
+    const pin = gen.valueToCode(block, 'PIN')
+    return [`p_${pin}.value()`, 0]
   }
 
   mb_tft_pix (args, util){
