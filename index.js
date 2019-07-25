@@ -12,6 +12,14 @@ const ledCommon = gen => {
   gen.variables_['mb_led'] = 'led1 = LED(1)\nled2 = LED(2)\n';
 };
 
+const tftCommon = gen => {
+  gen.imports_['mb_tft'] = 'from tft import *\n';
+};
+
+const colorToHex = color =>{
+  return color.replace('#', '0x')
+}
+
 class meowbit{
   constructor (runtime){
     this.runtime = runtime;
@@ -195,89 +203,130 @@ class meowbit{
         },
         '---',
         {
-          opcode: 'mb_inittft',
-          blockType: BlockType.COMMAND,
-          text: 'Init TFT',
-          gen: {
-            micropy: this.initTftMpy
-          }
-        },
-        {
           opcode: 'mb_tft_fill',
           blockType: BlockType.COMMAND,
           arguments: {
             COLOR: {
-              type: ArgumentType.STRING
+              type: ArgumentType.COLORRGB
             }
           },
-          text: 'TFT fill [COLOR]'
+          text: 'TFT fill [COLOR]',
+          gen: {
+            micropy: this.tftFillGen
+          }
         },
         {
           opcode: 'mb_tft_pix',
           blockType: BlockType.COMMAND,
           arguments: {
             X: {
-              type: ArgumentType.STRING
+              type: ArgumentType.NUMBER,
+              defaultValue: 50
             },
             Y: {
-              type: ArgumentType.STRING
+              type: ArgumentType.NUMBER,
+              defaultValue: 50
+            },
+            COLOR: {
+              type: ArgumentType.COLORRGB
             }
           },
-          text: 'TFT Pixel [X] [Y]'
+          text: 'TFT Pixel x[X] y[Y] [COLOR]',
+          gen: {
+            micropy: this.tftPixGen
+          }
         },
         {
           opcode: 'mb_tft_line',
           blockType: BlockType.COMMAND,
           arguments: {
             X0: {
-              type: ArgumentType.STRING
+              type: ArgumentType.NUMBER,
+              defaultValue: 5
             },
             Y0: {
-              type: ArgumentType.STRING
+              type: ArgumentType.NUMBER,
+              defaultValue: 5
             },
             X1: {
-              type: ArgumentType.STRING
+              type: ArgumentType.NUMBER,
+              defaultValue: 100
             },
             Y1: {
-              type: ArgumentType.STRING
+              type: ArgumentType.NUMBER,
+              defaultValue: 50
+            },
+            COLOR: {
+              type: ArgumentType.COLORRGB
             }
           },
-          text: 'TFT Line [X0] [Y0] - [X1] [Y1]'
+          text: 'TFT Line x[X0] y[Y0] - x[X1] y[Y1] [COLOR]',
+          gen: {
+            micropy: this.tftLineGen
+          }
         },
         {
           opcode: 'mb_tft_rect',
           blockType: BlockType.COMMAND,
           arguments: {
             X: {
-              type: ArgumentType.STRING
+              type: ArgumentType.NUMBER,
+              defaultValue: 5
             },
             Y: {
-              type: ArgumentType.STRING
+              type: ArgumentType.NUMBER,
+              defaultValue: 5
             },
             W: {
-              type: ArgumentType.STRING
+              type: ArgumentType.NUMBER,
+              defaultValue: 50
             },
             H: {
-              type: ArgumentType.STRING
+              type: ArgumentType.NUMBER,
+              defaultValue: 20
+            },
+            COLOR: {
+              type: ArgumentType.COLORRGB
             }
           },
-          text: 'TFT Rect [X] [Y] [W] [H]'
+          text: 'TFT Rect x[X] y[Y] w[W] h[H] [COLOR]',
+          gen: {
+            micropy: this.tftRectGen
+          }
         },
         {
           opcode: 'mb_tft_text',
           blockType: BlockType.COMMAND,
           arguments: {
             TXT: {
-              type: ArgumentType.STRING
+              type: ArgumentType.STRING,
+              defaultValue: 'Hello world'
             },
             X: {
-              type: ArgumentType.STRING
+              type: ArgumentType.NUMBER,
+              defaultValue: 5
             },
             Y: {
-              type: ArgumentType.STRING
+              type: ArgumentType.NUMBER,
+              defaultValue: 10
+            },
+            COLOR: {
+              type: ArgumentType.COLORRGB
             }
           },
-          text: 'TFT text [TXT] [X] [Y]'
+          text: 'TFT text [TXT] x[X] y[Y] [COLOR]',
+          gen: {
+            micropy: this.tftTextGen
+          }
+        },
+        {
+          opcode: 'mb_tft_redraw',
+          blockType: BlockType.COMMAND,
+          text: 'TFT Redraw',
+          func: 'noop',
+          gen: {
+            micropy: this.tftRedrawGen
+          }
         }
       ],
       menus: {
@@ -328,25 +377,69 @@ class meowbit{
   }
 
 
-  mb_inittft (args, util){
-
-    return this.write(`M0 \n`);
-  }
-
-  initTftMpy (gen, blocks){
-
-  }
-
   mb_tft_fill (args, util){
     const COLOR = args.COLOR;
 
     return this.write(`M0 \n`);
   }
 
+  tftFillGen (gen, block){
+    tftCommon(gen);
+    const color = colorToHex(gen.valueToCode(block, 'COLOR'));
+    const code = `fb.fill(${color})\n`
+    return code;
+  }
+
+  tftPixGen (gen, block){
+    tftCommon(gen);
+    const color = colorToHex(gen.valueToCode(block, 'COLOR'));
+    const x = gen.valueToCode(block, 'X');
+    const y = gen.valueToCode(block, 'Y');
+    const code = `fb.pixel(${x}, ${y}, ${color})\n`
+    return code;
+  }
+
+  tftLineGen (gen, block){
+    tftCommon(gen);
+    const color = colorToHex(gen.valueToCode(block, 'COLOR'));
+    const x0 = gen.valueToCode(block, 'X0');
+    const y0 = gen.valueToCode(block, 'Y0');
+    const x1 = gen.valueToCode(block, 'X1');
+    const y1 = gen.valueToCode(block, 'Y1');
+    const code = `fb.line(${x0},${y0},${x1},${y1},${color})\n`
+    return code;
+  }
+
+  tftRectGen (gen, block){
+    tftCommon(gen);
+    const color = colorToHex(gen.valueToCode(block, 'COLOR'));
+    const x = gen.valueToCode(block, 'X');
+    const y = gen.valueToCode(block, 'Y');
+    const w = gen.valueToCode(block, 'W');
+    const h = gen.valueToCode(block, 'H');
+    const code = `fb.rect(${x},${y},${w},${h},${color})\n`
+    return code;
+  }
+
+  tftTextGen (gen, block){
+    tftCommon(gen);
+    const color = colorToHex(gen.valueToCode(block, 'COLOR'));
+    const x = gen.valueToCode(block, 'X');
+    const y = gen.valueToCode(block, 'Y');
+    const txt = gen.valueToCode(block, 'TXT');
+    const code = `fb.text(${txt},${x},${y},${color})\n`
+    return code;
+  }
+
+  tftRedrawGen (gen, block){
+    tftCommon(gen);
+    return 'tft.show(fb)\n';
+  }
+
   mb_tft_pix (args, util){
     const X = args.X;
     const Y = args.Y;
-
+    
     return this.write(`M0 \n`);
   }
 
