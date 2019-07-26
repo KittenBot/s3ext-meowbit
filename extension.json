@@ -17,5 +17,8 @@
             "meow": "from pyb import *\n"
         }
     },
+    "editorButtons": {
+        "Reset": {"func": "micropyReset", "icon": "api"}
+    },
     "image": "meowbit.png"
 }

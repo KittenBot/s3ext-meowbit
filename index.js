@@ -62,6 +62,13 @@ class meowbit{
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
+  micropyReset (){
+    if (this.session){
+      // ctrl+c ctrl+b ctrl+d
+      this.session.write('\x03\x02\x04');
+    }
+  }
+
   async onmessage (data){
     const dataStr = this.decoder.decode(data);
     this.lineBuffer += dataStr;
@@ -468,6 +475,10 @@ class meowbit{
         PINMODE: ['OUT', 'IN'],
         UARTLIST: ['1', '2', '6']
 
+      },
+      translation_map: {
+        'zh-cn': {
+        },
       }
     }
   }
@@ -491,7 +502,7 @@ class meowbit{
   sleepGen (gen, block){
     gen.imports_['mbit_time'] = `from time import sleep\n`;
     const sec = gen.valueToCode(block, 'SEC', gen.ORDER_NONE);
-    const code = `sleep(${sec});`;
+    const code = `sleep(${sec})`;
     return code;
   }
 
