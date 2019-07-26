@@ -14,7 +14,7 @@
     "hex": "meowpy.uf2",
     "micropyGenConfig": {
         "imports": {
-            "meow": "from time import sleep\nfrom pyb import *\n"
+            "meow": "from pyb import *\n"
         }
     },
     "image": "meowbit.png"

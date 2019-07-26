@@ -148,6 +148,22 @@ class meowbit{
       blockIconURI: blockIconURI,
       blocks: [
         {
+          opcode: 'mb_sleep',
+          blockType: BlockType.COMMAND,
+          text: 'Sleep [SEC]sec',
+          arguments: {
+            SEC: {
+              type: ArgumentType.NUMBER,
+              defaultValue: 1
+            },
+          },
+          func: 'noop',
+          gen: {
+            micropy: this.sleepGen
+          }
+        },
+        '---',
+        {
           opcode: 'mb_led_onoff',
           blockType: BlockType.COMMAND,
           text: 'Led [INDEX] [ONOFF]',
@@ -387,12 +403,70 @@ class meowbit{
             micropy: this.pinReadGen
           }
         },
+        '---',
+        {
+          opcode: 'mb_uart_init',
+          blockType: BlockType.COMMAND,
+          text: 'Uart [UART] init baudrate[BAUD]',
+          func: 'noop',
+          arguments: {
+            UART: {
+              type: ArgumentType.STRING,
+              menu: 'UARTLIST',
+              defaultValue: '1'
+            },
+            BAUD: {
+              type: ArgumentType.NUMBER,
+              defaultValue: 115200
+            }
+          },
+          gen: {
+            micropy: this.uartInitGen
+          }
+        },
+        {
+          opcode: 'mb_uart_write',
+          blockType: BlockType.COMMAND,
+          text: 'Uart [UART] write [TXT]',
+          func: 'noop',
+          arguments: {
+            UART: {
+              type: ArgumentType.STRING,
+              menu: 'UARTLIST',
+              defaultValue: '1'
+            },
+            TXT: {
+              type: ArgumentType.STRING,
+              defaultValue: 'hello world'
+            }
+          },
+          gen: {
+            micropy: this.uartWriteGen
+          }
+        },
+        {
+          opcode: 'mb_uart_read',
+          blockType: BlockType.REPORTER,
+          text: 'Uart [UART] read',
+          func: 'noop',
+          arguments: {
+            UART: {
+              type: ArgumentType.STRING,
+              menu: 'UARTLIST',
+              defaultValue: '1'
+            },
+          },
+          gen: {
+            micropy: this.uartWriteRead
+          }
+        },
       ],
       menus: {
         LEDS: ['1', '2'],
         ONOFF: ['on', 'off'],
         PINS: ['A3', 'A0', 'A4', 'D4', 'D9', 'D2', 'A1', 'A2', 'PC6', 'A5', 'D3', 'D0', 'D1'],
-        PINMODE: ['OUT', 'IN']
+        PINMODE: ['OUT', 'IN'],
+        UARTLIST: ['1', '2', '6']
 
       }
     }
@@ -412,6 +486,13 @@ class meowbit{
 
   mb_led_intensity (args){
     
+  }
+
+  sleepGen (gen, block){
+    gen.imports_['mbit_time'] = `from time import sleep\n`;
+    const sec = gen.valueToCode(block, 'SEC', gen.ORDER_NONE);
+    const code = `sleep(${sec});`;
+    return code;
   }
 
   ledOnOffGen (gen, block){
@@ -520,6 +601,26 @@ class meowbit{
   pinReadGen (gen, block){  
     const pin = gen.valueToCode(block, 'PIN')
     return [`p_${pin}.value()`, 0]
+  }
+
+
+  uartInitGen (gen, block){
+    const idx = gen.valueToCode(block, 'UART')
+    const baud = gen.valueToCode(block, 'BAUD')
+    gen.variables_[`mb_uart${idx}`] = `uart${idx} = UART(${idx}, ${baud})\n`;
+  }
+
+  uartWriteGen (gen, block){
+    const idx = gen.valueToCode(block, 'UART')
+    const txt = gen.valueToCode(block, 'TXT')
+    const code =`uart${idx}.write(${txt})\n`;
+    return code;
+  }
+
+  uartWriteRead (gen, block){
+    const idx = gen.valueToCode(block, 'UART')
+    const code =`uart${idx}.read()`;
+    return [code, 0];
   }
 
   mb_tft_pix (args, util){
