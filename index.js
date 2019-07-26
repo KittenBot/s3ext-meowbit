@@ -502,7 +502,7 @@ class meowbit{
   sleepGen (gen, block){
     gen.imports_['mbit_time'] = `from time import sleep\n`;
     const sec = gen.valueToCode(block, 'SEC', gen.ORDER_NONE);
-    const code = `sleep(${sec})`;
+    const code = `sleep(${sec})\n`;
     return code;
   }
 
