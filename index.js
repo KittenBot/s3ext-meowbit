@@ -155,22 +155,6 @@ class meowbit{
       blockIconURI: blockIconURI,
       blocks: [
         {
-          opcode: 'mb_sleep',
-          blockType: BlockType.COMMAND,
-          text: 'Sleep [SEC]sec',
-          arguments: {
-            SEC: {
-              type: ArgumentType.NUMBER,
-              defaultValue: 1
-            },
-          },
-          func: 'noop',
-          gen: {
-            micropy: this.sleepGen
-          }
-        },
-        '---',
-        {
           opcode: 'mb_led_onoff',
           blockType: BlockType.COMMAND,
           text: 'Led [INDEX] [ONOFF]',
@@ -478,6 +462,20 @@ class meowbit{
       },
       translation_map: {
         'zh-cn': {
+          mb_led_toggle: "Led [INDEX] 反转",
+          mb_led_intensity: "Led [INDEX] 亮度 [INTENT]",
+          mb_tft_fill: "显示屏 填充 [COLOR]",
+          mb_tft_pix: "显示屏 像素 x[X] y[Y] [COLOR]",
+          mb_tft_line: "显示屏 线条 x[X0] y[Y0] - x[X1] y[Y1] [COLOR]",
+          mb_tft_rect: "显示屏 矩形 x[X] y[Y] w[W] h[H] [COLOR]",
+          mb_tft_text: "显示屏 文字 [TXT] x[X] y[Y] [COLOR]",
+          mb_tft_redraw: "显示屏 刷新",
+          mb_pin_mode: "引脚 [PIN] 模式[MODE]",
+          mb_pin_write: "引脚 [PIN] 数字写[LVL]",
+          mb_pin_read: "引脚 [PIN] 读电平",
+          mb_uart_init: "串口 [UART] 初始化 波特率[BAUD]",
+          mb_uart_write: "串口 [UART] 写 [TXT]",
+          mb_uart_read: "串口 [UART] 读"
         },
       }
     }
