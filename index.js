@@ -22,6 +22,10 @@ const turtleCommon = gen => {
   gen.variables_['mb_turtle'] = 'turtle = Turtle(tft, fb)\n';
 };
 
+const buzzComm = gen => {
+  gen.imports_['mb_buzz'] = 'from buzz import *\n';
+};
+
 
 const colorToHex = color =>{
   return color.replace('#', '0x')
@@ -104,6 +108,7 @@ class meowbit{
         } else {
           console.log('exe', ret)
         }
+        this.session.write('\x02');
         this.state = 0;
       }
     }
@@ -129,6 +134,8 @@ class meowbit{
           this.session.onclose = this.onclose;
           // notify gui connected
           this.runtime.emit(this.runtime.constructor.PERIPHERAL_CONNECTED);
+          // init reset 
+          this.session.write('\x03\x03\x02\x04');
       }).catch(err => {
           log.warn('connect peripheral fail', err);
       });
@@ -597,6 +604,61 @@ class meowbit{
         },
         '---',
         {
+          opcode: 'mb_button_evt',
+          blockType: BlockType.HAT,
+          isEdgeActivated: false,
+          text: 'On Button [BTN] Pressed',
+          func: 'mb_button_evt',
+          arguments: {
+            BTN: {
+              type: ArgumentType.STRING,
+              menu: 'BTNLIST',
+              defaultValue: 'UP'
+            }
+          },
+          gen: {
+            micropy: this.btnEvtGen
+          }
+        },
+        '---',
+        {
+          opcode: 'mb_buzz_tone',
+          blockType: BlockType.COMMAND,
+          isEdgeActivated: false,
+          text: 'Buzz Freq[FREQ] Delay[DELAY]',
+          func: 'noop',
+          arguments: {
+            FREQ: {
+              type: ArgumentType.NUMBER,
+              defaultValue: 261
+            },
+            DELAY: {
+              type: ArgumentType.NUMBER,
+              defaultValue: 1000
+            },
+          },
+          gen: {
+            micropy: this.bzToneGen
+          }
+        },
+        {
+          opcode: 'mb_buzz_music',
+          blockType: BlockType.COMMAND,
+          isEdgeActivated: false,
+          text: 'Buzz Music [NOTES]',
+          func: 'noop',
+          arguments: {
+            NOTES: {
+              type: ArgumentType.STRING,
+              defaultValue: 'c4:4 r d4:3 r:2 e4:2 '
+            }
+          },
+          gen: {
+            micropy: this.bzMusicGen
+          }
+        },
+        '---',
+        {
           opcode: 'mb_uart_init',
           blockType: BlockType.COMMAND,
           text: 'Uart [UART] init baudrate[BAUD]',
@@ -656,10 +718,17 @@ class meowbit{
       menus: {
         LEDS: ['1', '2'],
         ONOFF: ['on', 'off'],
-        PINS: ['A3', 'A0', 'A4', 'D4', 'D9', 'D2', 'A1', 'A2', 'PC6', 'A5', 'D3', 'D0', 'D1'],
+        PINS: ['A3', 'A0', 'A4', 'D4', 'D9', 'D2', 'A1', 'A2', 'C6', 'A5', 'D3', 'D0', 'D1'],
         PINMODE: ['OUT', 'IN'],
-        UARTLIST: ['1', '2', '6']
-
+        UARTLIST: ['1', '2', '6'],
+        BTNLIST: [
+          {text: 'Left', value: 'LEFT'},
+          {text: 'Up', value: 'UP'},
+          {text: 'Down', value: 'DOWN'},
+          {text: 'Right', value: 'RIGHT'},
+          {text: 'A', value: 'BTNA'},
+          {text: 'B', value: 'BTNB'},
+        ],
       },
       translation_map: {
         'zh-cn': {
@@ -690,7 +759,10 @@ class meowbit{
           mb_pin_read: "引脚 [PIN] 读电平",
           mb_uart_init: "串口 [UART] 初始化 波特率[BAUD]",
           mb_uart_write: "串口 [UART] 写 [TXT]",
-          mb_uart_read: "串口 [UART] 读"
+          mb_uart_read: "串口 [UART] 读",
+          mb_button_evt: "当按键 [BTN] 按下",
+          mb_buzz_music: "蜂鸣器音符 [NOTES]",
+          mb_buzz_tone: "蜂鸣器 频率[FREQ] 延时[DELAY]",
         },
       }
     }
@@ -982,6 +1054,37 @@ class meowbit{
 
     return this.write(`M0 \n`);
   }
+
+  mb_button_evt (args) {
+    // console.log("mqtt got" + args);
+    return true;
+  }
+
+  btnEvtGen (gen, block){
+    const btn = gen.valueToCode(block, 'BTN');
+    const nextBlock = block.nextConnection && block.nextConnection.targetBlock();
+    let code = gen.blockToCode(nextBlock) || 'pass';
+    code = gen.prefixLines(code, gen.INDENT)
+    gen.functions_[`_mb_btn_evt_${btn}`] = `\ndef onBtn${btn}Pressed(evt):\n  ${gen.getVarGlobals()}\n${code}\n`;
+    gen.functions_[`mb_btn_${btn}`] = `ExtInt(Pin('${btn}'), ExtInt.IRQ_FALLING, Pin.PULL_UP, onBtn${btn}Pressed) `
+  }
+
+  bzToneGen (gen, block){
+    buzzComm(gen);
+    const freq = gen.valueToCode(block, 'FREQ');
+    const t = gen.valueToCode(block, 'DELAY');
+    const code = `tone(${freq}, ${t})\n`;
+    return code;
+  }
+
+  bzMusicGen (gen, block){
+    buzzComm(gen);
+    const notes = gen.valueToCode(block, 'NOTES');
+    const code = `music(${notes})\n`;
+    return code;
+  }
+
+
 
 }
 
