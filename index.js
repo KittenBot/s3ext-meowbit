@@ -16,6 +16,13 @@ const tftCommon = gen => {
   gen.imports_['mb_tft'] = 'from tft import *\n';
 };
 
+const turtleCommon = gen => {
+  gen.imports_['mb_tft'] = 'from tft import *\n';
+  gen.imports_['mb_turtle'] = 'from turtle import Turtle\n';
+  gen.variables_['mb_turtle'] = 'turtle = Turtle(tft, fb)\n';
+};
+
+
 const colorToHex = color =>{
   return color.replace('#', '0x')
 }
@@ -347,7 +354,7 @@ class meowbit{
           func: 'noop',
           text: 'Turtle Color [COLOR]',
           gen: {
-            micropy: this.tftFillGen
+            micropy: this.trColorGen
           }
         },
         {
@@ -362,7 +369,7 @@ class meowbit{
           func: 'noop',
           text: 'Turtle Forward [PIX]',
           gen: {
-            micropy: this.tftFillGen
+            micropy: this.trForwardGen
           }
         },
         {
@@ -377,7 +384,7 @@ class meowbit{
           func: 'noop',
           text: 'Turtle Left [DEG] degree',
           gen: {
-            micropy: this.tftFillGen
+            micropy: this.trLeftGen
           }
         },
         {
@@ -392,7 +399,7 @@ class meowbit{
           func: 'noop',
           text: 'Turtle Right [DEG] degree',
           gen: {
-            micropy: this.tftFillGen
+            micropy: this.trRightGen
           }
         },
         {
@@ -407,7 +414,7 @@ class meowbit{
           func: 'noop',
           text: 'Turtle Heading [DEG] degree',
           gen: {
-            micropy: this.tftFillGen
+            micropy: this.trHeadingGen
           }
         },
         {
@@ -426,7 +433,7 @@ class meowbit{
           func: 'noop',
           text: 'Turtle Goto X[X] Y[Y]',
           gen: {
-            micropy: this.tftFillGen
+            micropy: this.trGotoGen
           }
         },
         {
@@ -441,7 +448,7 @@ class meowbit{
           func: 'noop',
           text: 'Turtle Set X[POS]',
           gen: {
-            micropy: this.tftFillGen
+            micropy: this.trSetxGen
           }
         },
         {
@@ -456,7 +463,7 @@ class meowbit{
           func: 'noop',
           text: 'Turtle Set Y[POS]',
           gen: {
-            micropy: this.tftFillGen
+            micropy: this.trSetyGen
           }
         },
         {
@@ -475,7 +482,7 @@ class meowbit{
             },
           },
           gen: {
-            micropy: this.tftFillGen
+            micropy: this.trCircleGen
           }
         },
         {
@@ -490,7 +497,7 @@ class meowbit{
             }
           },
           gen: {
-            micropy: this.tftFillGen
+            micropy: this.trDotGen
           }
         },
         {
@@ -499,7 +506,7 @@ class meowbit{
           func: 'noop',
           text: 'Turtle Begin Fill',
           gen: {
-            micropy: this.tftFillGen
+            micropy: this.trFillBeginGen
           }
         },
         {
@@ -508,7 +515,7 @@ class meowbit{
           func: 'noop',
           text: 'Turtle End Fill',
           gen: {
-            micropy: this.tftFillGen
+            micropy: this.trFillEndGen
           }
         },
         {
@@ -517,7 +524,7 @@ class meowbit{
           func: 'noop',
           text: 'Turtle Pen Down',
           gen: {
-            micropy: this.tftFillGen
+            micropy: this.trPenDownGen
           }
         },
         {
@@ -526,14 +533,9 @@ class meowbit{
           func: 'noop',
           text: 'Turtle Pen Up',
           gen: {
-            micropy: this.tftFillGen
+            micropy: this.trPenUpGen
           }
         },
-        
-
-        
-
-
         '---',
         {
           opcode: 'mb_pin_mode',
@@ -669,6 +671,20 @@ class meowbit{
           mb_tft_rect: "显示屏 矩形 x[X] y[Y] w[W] h[H] [COLOR]",
           mb_tft_text: "显示屏 文字 [TXT] x[X] y[Y] [COLOR]",
           mb_tft_redraw: "显示屏 刷新",
+          mb_turtle_setcolor: "海龟 绘画颜色[COLOR]",
+          mb_turtle_forward: "海龟 前进[PIX]",
+          mb_turtle_left: "海龟 左转[DEG]度",
+          mb_turtle_right: "海龟 右转[DEG]度",
+          mb_turtle_heading: "海龟 朝向[DEG]度",
+          mb_turtle_goto: "海龟 移动到x[X] y[Y]",
+          mb_turtle_setx: "海龟 设置x[X]",
+          mb_turtle_sety: "海龟 设置y[Y]",
+          mb_turtle_circle: "海龟 画圈 半径[R] 角度[DEG]",
+          mb_turtle_dot: "海龟 画点 大小[SIZE]",
+          mb_turtle_beginfill: "海龟 开始填充",
+          mb_turtle_endfill: "海龟 结束填充",
+          mb_turtle_penup: "海龟 抬笔",
+          mb_turtle_pendown: "海龟 落笔",
           mb_pin_mode: "引脚 [PIN] 模式[MODE]",
           mb_pin_write: "引脚 [PIN] 数字写[LVL]",
           mb_pin_read: "引脚 [PIN] 读电平",
@@ -829,6 +845,109 @@ class meowbit{
     const idx = gen.valueToCode(block, 'UART')
     const code =`uart${idx}.read()`;
     return [code, 0];
+  }
+
+  trColorGen (gen, block){
+    turtleCommon(gen);
+    const color = colorToHex(gen.valueToCode(block, 'COLOR'));
+    const code = `turtle.fillcolor(${color})\n`;
+    return code;
+  }
+
+  trForwardGen (gen, block){
+    turtleCommon(gen);
+    const len = gen.valueToCode(block, 'PIX', gen.ORDER_NONE);
+    const code = `turtle.forward(${len})\n`;
+    return code;
+  }
+
+  trLeftGen (gen, block){
+    turtleCommon(gen);
+    const deg = gen.valueToCode(block, 'DEG', gen.ORDER_NONE);
+    const code = `turtle.left(${deg})\n`;
+    return code;
+  }
+
+  trRightGen (gen, block){
+    turtleCommon(gen);
+    const deg = gen.valueToCode(block, 'DEG', gen.ORDER_NONE);
+    const code = `turtle.right(${deg})\n`;
+    return code;
+  }
+
+  trHeadingGen (gen, block){
+    turtleCommon(gen);
+    const deg = gen.valueToCode(block, 'DEG', gen.ORDER_NONE);
+    const code = `turtle.setheading(${deg})\n`;
+    return code;
+  }
+
+  trGotoGen (gen, block){
+    turtleCommon(gen);
+    const x = gen.valueToCode(block, 'X', gen.ORDER_NONE);
+    const y = gen.valueToCode(block, 'Y', gen.ORDER_NONE);
+    const code = `turtle.goto(${x}, ${y})\n`;
+    return code;
+  }
+
+  trSetxGen (gen, block){
+    turtleCommon(gen);
+    const x = gen.valueToCode(block, 'X', gen.ORDER_NONE);
+    const code = `turtle.setx(${x})\n`;
+    return code;
+  }
+
+  trSetyGen (gen, block){
+    turtleCommon(gen);
+    const y = gen.valueToCode(block, 'Y', gen.ORDER_NONE);
+    const code = `turtle.sety(${y})\n`;
+    return code;
+  }
+
+  trCircleGen (gen, block){
+    turtleCommon(gen);
+    const r = gen.valueToCode(block, 'R', gen.ORDER_NONE);
+    const deg = gen.valueToCode(block, 'DEG', gen.ORDER_NONE);
+    const code = `turtle.circle(${r}, ${deg})\n`;
+    return code;
+  }
+
+  mb_turtle_dot (gen, block){
+    turtleCommon(gen);
+    const size = gen.valueToCode(block, 'SIZE', gen.ORDER_NONE);
+    const code = `turtle.dot(${size})\n`;
+    return code;
+  }
+
+  trFillBeginGen (gen, block){
+    turtleCommon(gen);
+    const size = gen.valueToCode(block, 'SIZE', gen.ORDER_NONE);
+    const code = `turtle.dot(${size})\n`;
+    return code;
+  }
+
+  trFillBeginGen (gen, block){
+    turtleCommon(gen);
+    const code = `turtle.begin_fill()\n`;
+    return code;
+  }
+
+  trFillEndGen (gen, block){
+    turtleCommon(gen);
+    const code = `turtle.end_fill()\n`;
+    return code;
+  }
+
+  trPenUpGen (gen, block){
+    turtleCommon(gen);
+    const code = `turtle.penup()\n`;
+    return code;
+  }
+
+  trPenDownGen (gen, block){
+    turtleCommon(gen);
+    const code = `turtle.pendown()\n`;
+    return code;
   }
 
   mb_tft_pix (args, util){
