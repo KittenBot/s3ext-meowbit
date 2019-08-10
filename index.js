@@ -337,6 +337,205 @@ class meowbit{
         },
         '---',
         {
+          opcode: 'mb_turtle_setcolor',
+          blockType: BlockType.COMMAND,
+          arguments: {
+            COLOR: {
+              type: ArgumentType.COLORRGB
+            }
+          },
+          func: 'noop',
+          text: 'Turtle Color [COLOR]',
+          gen: {
+            micropy: this.tftFillGen
+          }
+        },
+        {
+          opcode: 'mb_turtle_forward',
+          blockType: BlockType.COMMAND,
+          arguments: {
+            PIX: {
+              type: ArgumentType.NUMBER,
+              defaultValue: 10
+            }
+          },
+          func: 'noop',
+          text: 'Turtle Forward [PIX]',
+          gen: {
+            micropy: this.tftFillGen
+          }
+        },
+        {
+          opcode: 'mb_turtle_left',
+          blockType: BlockType.COMMAND,
+          arguments: {
+            DEG: {
+              type: ArgumentType.NUMBER,
+              defaultValue: 90
+            }
+          },
+          func: 'noop',
+          text: 'Turtle Left [DEG] degree',
+          gen: {
+            micropy: this.tftFillGen
+          }
+        },
+        {
+          opcode: 'mb_turtle_right',
+          blockType: BlockType.COMMAND,
+          arguments: {
+            DEG: {
+              type: ArgumentType.NUMBER,
+              defaultValue: 90
+            }
+          },
+          func: 'noop',
+          text: 'Turtle Right [DEG] degree',
+          gen: {
+            micropy: this.tftFillGen
+          }
+        },
+        {
+          opcode: 'mb_turtle_heading',
+          blockType: BlockType.COMMAND,
+          arguments: {
+            DEG: {
+              type: ArgumentType.NUMBER,
+              defaultValue: 90
+            }
+          },
+          func: 'noop',
+          text: 'Turtle Heading [DEG] degree',
+          gen: {
+            micropy: this.tftFillGen
+          }
+        },
+        {
+          opcode: 'mb_turtle_goto',
+          blockType: BlockType.COMMAND,
+          arguments: {
+            X: {
+              type: ArgumentType.NUMBER,
+              defaultValue: 50
+            },
+            Y: {
+              type: ArgumentType.NUMBER,
+              defaultValue: 100
+            },
+          },
+          func: 'noop',
+          text: 'Turtle Goto X[X] Y[Y]',
+          gen: {
+            micropy: this.tftFillGen
+          }
+        },
+        {
+          opcode: 'mb_turtle_setx',
+          blockType: BlockType.COMMAND,
+          arguments: {
+            POS: {
+              type: ArgumentType.NUMBER,
+              defaultValue: 100
+            }
+          },
+          func: 'noop',
+          text: 'Turtle Set X[POS]',
+          gen: {
+            micropy: this.tftFillGen
+          }
+        },
+        {
+          opcode: 'mb_turtle_sety',
+          blockType: BlockType.COMMAND,
+          arguments: {
+            POS: {
+              type: ArgumentType.NUMBER,
+              defaultValue: 100
+            }
+          },
+          func: 'noop',
+          text: 'Turtle Set Y[POS]',
+          gen: {
+            micropy: this.tftFillGen
+          }
+        },
+        {
+          opcode: 'mb_turtle_circle',
+          blockType: BlockType.COMMAND,
+          func: 'noop',
+          text: 'Turtle Circle Radius[R] Degree[DEG]',
+          arguments: {
+            R: {
+              type: ArgumentType.NUMBER,
+              defaultValue: 20
+            },
+            DEG: {
+              type: ArgumentType.NUMBER,
+              defaultValue: 360
+            },
+          },
+          gen: {
+            micropy: this.tftFillGen
+          }
+        },
+        {
+          opcode: 'mb_turtle_dot',
+          blockType: BlockType.COMMAND,
+          func: 'noop',
+          text: 'Turtle Draw Dot Size[SIZE]',
+          arguments: {
+            SIZE: {
+              type: ArgumentType.NUMBER,
+              defaultValue: 5
+            }
+          },
+          gen: {
+            micropy: this.tftFillGen
+          }
+        },
+        {
+          opcode: 'mb_turtle_beginfill',
+          blockType: BlockType.COMMAND,
+          func: 'noop',
+          text: 'Turtle Begin Fill',
+          gen: {
+            micropy: this.tftFillGen
+          }
+        },
+        {
+          opcode: 'mb_turtle_endfill',
+          blockType: BlockType.COMMAND,
+          func: 'noop',
+          text: 'Turtle End Fill',
+          gen: {
+            micropy: this.tftFillGen
+          }
+        },
+        {
+          opcode: 'mb_turtle_pendown',
+          blockType: BlockType.COMMAND,
+          func: 'noop',
+          text: 'Turtle Pen Down',
+          gen: {
+            micropy: this.tftFillGen
+          }
+        },
+        {
+          opcode: 'mb_turtle_penup',
+          blockType: BlockType.COMMAND,
+          func: 'noop',
+          text: 'Turtle Pen Up',
+          gen: {
+            micropy: this.tftFillGen
+          }
+        },
+        
+
+        
+
+
+        '---',
+        {
           opcode: 'mb_pin_mode',
           blockType: BlockType.COMMAND,
           text: 'Pin [PIN] mode[MODE]',

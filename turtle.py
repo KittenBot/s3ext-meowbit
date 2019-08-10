@@ -6,19 +6,23 @@ class Turtle:
         self._tft = tft
         self._fb = fb
         self._position = (0.0, 0.0)
-        self._x = 50
-        self._y = 50
+        self._x = 80
+        self._y = 64
         self._angle = 0
         self._old_heading = 0
         self._fillcolor = 0xff0000
+        self._fillpath = None
         self._fullcircle = 360.0
         self._drawing = True
         self.degree_to_radians = pi / 180
 
+    def _refresh(self):
+        self._tft.show(self._fb)
+
     def _goto(self, x, y):
         if self._drawing:
             self._fb.line(round(self._x), round(self._y), round(x), round(y), self._fillcolor)
-            self._tft.show(self._fb)
+            self._refresh()
         if self._fillpath is not None:
             self._fillpath.append((x, y))
         self._position = (x, y)
@@ -48,6 +52,10 @@ class Turtle:
     def sety(self, y):
         self._distance = abs(y - self._y)
         self._goto(self._x, y)
+
+    def clear(self):
+        self._fb.fill(0)
+        self._refresh()
     
     def _rotate(self, angle):
         self._angle -= angle
@@ -80,6 +88,7 @@ class Turtle:
 
     def dot(self, size=5):
         self._fb.circle(round(self._x), round(self._y), round(size), self._fillcolor, 1)
+        self._refresh()
 
     def fillcolor(self, color):
         self._fillcolor = color
@@ -96,5 +105,5 @@ class Turtle:
                     self._fb.traingle(round(x0), round(y0), round(self._fillpath[i][0]), round(self._fillpath[i][1]), round(self._fillpath[i+1][0]), round(self._fillpath[i+1][1]), self._fillcolor, 1)
         else:
             print("No path to fill.")
-        self._tft.show(self._fb)
+        self._refresh()
         self._fillpath = None
