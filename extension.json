@@ -4,6 +4,7 @@
     "type": "python",
     "flash": "uf2",
     "replmode": true,
+    "execmode": true,
     "fslib": [
         "tft.py",
         "mpu6050.py",

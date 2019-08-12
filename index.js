@@ -159,6 +159,22 @@ class meowbit{
     this.session.write('\r\x01') // ctrl+A to raw repl mode
   }
 
+  micropyFlash (code){
+    let fileName = 'main.py';
+    if (typeof code === 'object'){
+      fileName = code.fileName;
+      code = code.code;
+    }
+    let loader = `f=open('${fileName}','wb')\n`
+    const lines = code.split('\n');
+    loader = lines.reduce((a, l) => {
+      return a+=`f.write('${l}\\n')\n`
+    }, loader);
+    loader += 'f.close()\n'
+    this.code = loader;
+    this.session.write('\r\x01') // ctrl+A to raw repl mode
+  }
+
   getInfo (){
     return {
       id: 'meowbit',
