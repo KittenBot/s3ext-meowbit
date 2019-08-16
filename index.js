@@ -559,6 +559,15 @@ class meowbit{
             micropy: this.trPenUpGen
           }
         },
+        {
+          opcode: 'mb_turtle_clear',
+          blockType: BlockType.COMMAND,
+          func: 'noop',
+          text: 'Turtle Clear',
+          gen: {
+            micropy: this.trClear
+          }
+        },
         '---',
         {
           opcode: 'mb_pin_mode',
@@ -616,6 +625,22 @@ class meowbit{
           },
           gen: {
             micropy: this.pinReadGen
+          }
+        },
+        {
+          opcode: 'mb_analog_read',
+          blockType: BlockType.REPORTER,
+          text: 'Pin [PIN] analog',
+          func: 'noop',
+          arguments: {
+            PIN: {
+              type: ArgumentType.STRING,
+              menu: 'PINS',
+              defaultValue: 'A0'
+            }
+          },
+          gen: {
+            micropy: this.pinAnalogGen
           }
         },
         '---',
@@ -773,6 +798,7 @@ class meowbit{
           mb_pin_mode: "引脚 [PIN] 模式[MODE]",
           mb_pin_write: "引脚 [PIN] 数字写[LVL]",
           mb_pin_read: "引脚 [PIN] 读电平",
+          mb_analog_read: "引脚 [PIN] 模拟值",
           mb_uart_init: "串口 [UART] 初始化 波特率[BAUD]",
           mb_uart_write: "串口 [UART] 写 [TXT]",
           mb_uart_read: "串口 [UART] 读",
@@ -915,6 +941,12 @@ class meowbit{
     return [`p_${pin}.value()`, 0]
   }
 
+  pinAnalogGen (gen, block){
+    const pin = gen.valueToCode(block, 'PIN')
+    gen.functions_[`analog_${pin}`] = `analog_${pin} = ADC('${pin}')`
+    return [`analog_${pin}.read()`, 0]
+  }
+
 
   uartInitGen (gen, block){
     const idx = gen.valueToCode(block, 'UART')
@@ -1035,6 +1067,12 @@ class meowbit{
   trPenDownGen (gen, block){
     turtleCommon(gen);
     const code = `turtle.pendown()\n`;
+    return code;
+  }
+
+  trClear (gen, block){
+    turtleCommon(gen);
+    const code = `turtle.clear()\n`;
     return code;
   }
 
