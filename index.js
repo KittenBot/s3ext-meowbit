@@ -1000,7 +1000,7 @@ class meowbit{
     return code;
   }
 
-  mb_turtle_dot (gen, block){
+  trDotGen (gen, block){
     turtleCommon(gen);
     const size = gen.valueToCode(block, 'SIZE', gen.ORDER_NONE);
     const code = `turtle.dot(${size})\n`;
