@@ -759,7 +759,7 @@ class meowbit{
       menus: {
         LEDS: ['1', '2'],
         ONOFF: ['on', 'off'],
-        PINS: ['A3', 'A0', 'A4', 'D4', 'D9', 'D2', 'A1', 'A2', 'C6', 'A5', 'D3', 'D0', 'D1'],
+        PINS: ['P0', 'P1', 'P2', 'P3', 'P4', 'P5', 'P6', 'P7', 'P8', 'P9', 'P10', 'P11', 'P12', 'P13', 'P14', 'P15', 'P16'],
         PINMODE: ['OUT', 'IN'],
         UARTLIST: ['1', '2', '6'],
         BTNLIST: [
@@ -795,6 +795,7 @@ class meowbit{
           mb_turtle_endfill: "海龟 结束填充",
           mb_turtle_penup: "海龟 抬笔",
           mb_turtle_pendown: "海龟 落笔",
+          mb_turtle_clear: "海龟 清屏",
           mb_pin_mode: "引脚 [PIN] 模式[MODE]",
           mb_pin_write: "引脚 [PIN] 数字写[LVL]",
           mb_pin_read: "引脚 [PIN] 读电平",
