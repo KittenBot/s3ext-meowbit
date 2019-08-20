@@ -53,6 +53,7 @@ class meowbit{
 
     // repl state
     this.state = 0;
+    this.rstAfterStop = false;
   }
 
   onclose (){
@@ -121,6 +122,11 @@ class meowbit{
         }
         this.session.write('\x02');
         this.state = 0;
+        if (this.rstAfterStop){
+          this.rstAfterStop = false;
+          // force reset
+          this.session.write('\x03\x02\x04');
+        }
       }
     }
 
@@ -183,6 +189,7 @@ class meowbit{
     }, loader);
     loader += 'f.close()\n'
     this.code = loader;
+    this.rstAfterStop = true;
     this.session.write('\r\x01') // ctrl+A to raw repl mode
   }
 
