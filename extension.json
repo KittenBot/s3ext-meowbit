@@ -19,6 +19,7 @@
         }
     },
     "editorButtons": {
+        "Stop": {"func": "micropyStop", "icon": "stop"},
         "Reset": {"func": "micropyReset", "icon": "api"}
     },
     "image": "meowbit.png"

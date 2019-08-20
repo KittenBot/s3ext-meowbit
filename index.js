@@ -47,6 +47,10 @@ class meowbit{
     this.decoder = new TextDecoder();
     this.lineBuffer = '';
 
+    // stop proj on red button
+    this.micropyStop = this.micropyStop.bind(this);
+    this.runtime.on('PROJECT_STOP_ALL', this.micropyStop);
+
     // repl state
     this.state = 0;
   }
@@ -77,6 +81,13 @@ class meowbit{
     if (this.session){
       // ctrl+c ctrl+b ctrl+d
       this.session.write('\x03\x02\x04');
+    }
+  }
+
+  micropyStop (){
+    if (this.session){
+      // ctrl+c ctrl+c
+      this.session.write('\x03\x03');
     }
   }
 
@@ -1013,14 +1024,14 @@ class meowbit{
 
   trSetxGen (gen, block){
     turtleCommon(gen);
-    const x = gen.valueToCode(block, 'X', gen.ORDER_NONE);
+    const x = gen.valueToCode(block, 'POS', gen.ORDER_NONE);
     const code = `turtle.setx(${x})\n`;
     return code;
   }
 
   trSetyGen (gen, block){
     turtleCommon(gen);
-    const y = gen.valueToCode(block, 'Y', gen.ORDER_NONE);
+    const y = gen.valueToCode(block, 'POS', gen.ORDER_NONE);
     const code = `turtle.sety(${y})\n`;
     return code;
   }
