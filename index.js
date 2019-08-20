@@ -779,7 +779,11 @@ class meowbit{
         ONOFF: ['on', 'off'],
         PINS: ['P0', 'P1', 'P2', 'P3', 'P4', 'P5', 'P6', 'P7', 'P8', 'P9', 'P10', 'P11', 'P12', 'P13', 'P14', 'P15', 'P16'],
         PINMODE: ['OUT', 'IN'],
-        UARTLIST: ['1', '2', '6'],
+        UARTLIST: [
+          {text: '1 JAC', value: '1'},
+          {text: '2 P2/P12', value: '2'},
+          {text: '6 P9/P6', value: '6'}
+        ],
         BTNLIST: [
           {text: 'Left', value: 'LEFT'},
           {text: 'Up', value: 'UP'},
