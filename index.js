@@ -653,8 +653,8 @@ class meowbit{
           arguments: {
             PIN: {
               type: ArgumentType.STRING,
-              menu: 'PINS',
-              defaultValue: 'A0'
+              menu: 'PINSANALOG',
+              defaultValue: 'P0'
             }
           },
           gen: {
@@ -778,6 +778,7 @@ class meowbit{
         LEDS: ['1', '2'],
         ONOFF: ['on', 'off'],
         PINS: ['P0', 'P1', 'P2', 'P3', 'P4', 'P5', 'P6', 'P7', 'P8', 'P9', 'P10', 'P11', 'P12', 'P13', 'P14', 'P15', 'P16'],
+        PINSANALOG: ['P0', 'P1', 'P2', 'P3', 'P4', 'P5', 'P8', 'P10', 'P12'],
         PINMODE: ['OUT', 'IN'],
         UARTLIST: [
           {text: '1 JAC', value: '1'},
