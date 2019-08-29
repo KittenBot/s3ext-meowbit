@@ -757,6 +757,63 @@ class meowbit{
         },
         '---',
         {
+          opcode: 'mb_servo_init',
+          blockType: BlockType.COMMAND,
+          text: 'Servo [SERVO] init',
+          func: 'noop',
+          arguments: {
+            SERVO: {
+              type: ArgumentType.STRING,
+              menu: 'SERVO',
+              defaultValue: '1'
+            }
+          },
+          gen: {
+            micropy: this.servoInitGen
+          }
+        },
+        {
+          opcode: 'mb_servo_angle',
+          blockType: BlockType.COMMAND,
+          text: 'Servo [SERVO] angle[DEGREE]',
+          func: 'noop',
+          arguments: {
+            SERVO: {
+              type: ArgumentType.STRING,
+              menu: 'SERVO',
+              defaultValue: '1'
+            },
+            DEGREE: {
+              type: ArgumentType.NUMBER,
+              defaultValue: 90
+            }
+          },
+          gen: {
+            micropy: this.servoAngleGen
+          }
+        },
+        {
+          opcode: 'mb_servo_pulse',
+          blockType: BlockType.COMMAND,
+          text: 'Servo [SERVO] pulse[PULSE]us',
+          func: 'noop',
+          arguments: {
+            SERVO: {
+              type: ArgumentType.STRING,
+              menu: 'SERVO',
+              defaultValue: '1'
+            },
+            PULSE: {
+              type: ArgumentType.NUMBER,
+              defaultValue: 1500
+            }
+          },
+          gen: {
+            micropy: this.servoPulseGen
+          }
+        },
+        '---',
+        {
           opcode: 'mb_uart_init',
           blockType: BlockType.COMMAND,
           text: 'Uart [UART] init baudrate[BAUD]',
@@ -826,6 +883,12 @@ class meowbit{
           opcode: 'mb_print',
           blockType: BlockType.COMMAND,
           text: 'Print [TXT]',
+          arguments: {
+            TXT: {
+              type: ArgumentType.STRING,
+              defaultValue: 'hello world'
+            },
+          },
           func: 'noop',
           gen: {
             micropy: this.printGen
@@ -851,7 +914,13 @@ class meowbit{
           {text: 'A', value: 'BTNA'},
           {text: 'B', value: 'BTNB'},
         ],
-        AXIS: ['x', 'y', 'z']
+        AXIS: ['x', 'y', 'z'],
+        SERVO: [
+          {text: 'P0', value: '1'},
+          {text: 'P1', value: '2'},
+          {text: 'P2', value: '3'},
+          {text: 'P12', value: '4'}
+        ],
       },
       translation_map: {
         'zh-cn': {
@@ -1172,6 +1241,25 @@ class meowbit{
     const axis = gen.valueToCode(block, 'AXIS', gen.ORDER_NONE);
     const code = `acc.get_g_${axis}()`
     return [code, 0]
+  }
+
+  servoInitGen (gen, block){
+    const s = gen.valueToCode(block, 'SERVO', gen.ORDER_NONE);
+    gen.variables_[`mb_s${s}`] = `s${s} = Servo(${s})\n`;
+  }
+
+  servoAngleGen (gen, block){
+    const s = gen.valueToCode(block, 'SERVO', gen.ORDER_NONE);
+    const a = gen.valueToCode(block, 'DEGREE', gen.ORDER_NONE);
+    const code = `s${s}.angle(${a})\n`
+    return code;
+  }
+
+  servoPulseGen (gen, block){
+    const s = gen.valueToCode(block, 'SERVO', gen.ORDER_NONE);
+    const a = gen.valueToCode(block, 'PULSE', gen.ORDER_NONE);
+    const code = `s${s}.pulse_width(${a})\n`
+    return code;
   }
 
   mb_tft_pix (args, util){
