@@ -125,6 +125,7 @@ class meowbit{
         if (this.rstAfterStop){
           this.rstAfterStop = false;
           // force reset
+          await this.sleep(2000);
           this.session.write('\x03\x02\x04');
         }
       }
@@ -182,10 +183,11 @@ class meowbit{
       fileName = code.fileName;
       code = code.code;
     }
-    let loader = `f=open('${fileName}','wb')\n`
+    let loader = `f=open("${fileName}","wb")\n`
     const lines = code.split('\n');
     loader = lines.reduce((a, l) => {
-      return a+=`f.write('${l}\\n')\n`
+      l = l.replace(/"/g, "'")
+      return a+=`f.write("${l}\\n")\n`
     }, loader);
     loader += 'f.close()\n'
     this.code = loader;
