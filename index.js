@@ -26,6 +26,10 @@ const buzzComm = gen => {
   gen.imports_['mb_buzz'] = 'from buzz import *\n';
 };
 
+const imuCommon = gen => {
+  gen.imports_['mb_mpu6050'] = 'import mpu6050\n';
+  gen.variables_['mb_acc'] = 'acc = mpu6050.accel(I2C(1))\n';
+};
 
 const colorToHex = color =>{
   return color.replace('#', '0x')
@@ -720,6 +724,39 @@ class meowbit{
         },
         '---',
         {
+          opcode: 'mb_imu_acc',
+          blockType: BlockType.REPORTER,
+          text: 'Imu get Acc [AXIS]',
+          func: 'noop',
+          arguments: {
+            AXIS: {
+              type: ArgumentType.STRING,
+              menu: 'AXIS',
+              defaultValue: 'x'
+            }
+          },
+          gen: {
+            micropy: this.imuAccGen
+          }
+        },
+        {
+          opcode: 'mb_imu_gyro',
+          blockType: BlockType.REPORTER,
+          text: 'Imu get Gyro [AXIS]',
+          func: 'noop',
+          arguments: {
+            AXIS: {
+              type: ArgumentType.STRING,
+              menu: 'AXIS',
+              defaultValue: 'x'
+            }
+          },
+          gen: {
+            micropy: this.imuGyroGen
+          }
+        },
+        '---',
+        {
           opcode: 'mb_uart_init',
           blockType: BlockType.COMMAND,
           text: 'Uart [UART] init baudrate[BAUD]',
@@ -775,6 +812,25 @@ class meowbit{
             micropy: this.uartWriteRead
           }
         },
+        '---',
+        {
+          opcode: 'mb_runtime',
+          blockType: BlockType.REPORTER,
+          text: 'runtime (ms)',
+          func: 'noop',
+          gen: {
+            micropy: this.runtimeGen
+          }
+        },
+        {
+          opcode: 'mb_print',
+          blockType: BlockType.COMMAND,
+          text: 'Print [TXT]',
+          func: 'noop',
+          gen: {
+            micropy: this.printGen
+          }
+        },
       ],
       menus: {
         LEDS: ['1', '2'],
@@ -795,6 +851,7 @@ class meowbit{
           {text: 'A', value: 'BTNA'},
           {text: 'B', value: 'BTNB'},
         ],
+        AXIS: ['x', 'y', 'z']
       },
       translation_map: {
         'zh-cn': {
@@ -831,6 +888,7 @@ class meowbit{
           mb_button_evt: "当按键 [BTN] 按下",
           mb_buzz_music: "蜂鸣器音符 [NOTES]",
           mb_buzz_tone: "蜂鸣器 频率[FREQ] 延时[DELAY]",
+          mb_runtime: "运行时间 (ms)"
         },
       }
     }
@@ -1102,6 +1160,20 @@ class meowbit{
     return code;
   }
 
+  imuAccGen (gen, block){
+    imuCommon(gen);
+    const axis = gen.valueToCode(block, 'AXIS', gen.ORDER_NONE);
+    const code = `acc.get_ac_${axis}()`
+    return [code, 0]
+  }
+
+  imuGyroGen (gen, block){
+    imuCommon(gen);
+    const axis = gen.valueToCode(block, 'AXIS', gen.ORDER_NONE);
+    const code = `acc.get_g_${axis}()`
+    return [code, 0]
+  }
+
   mb_tft_pix (args, util){
     const X = args.X;
     const Y = args.Y;
@@ -1164,7 +1236,17 @@ class meowbit{
     return code;
   }
 
+  runtimeGen (gen, block){
+    gen.imports_['mbit_ticksms'] = `from time import ticks_ms\n`;
+    const code = `ticks_ms()`;
+    return [code, 0];
+  }
 
+  printGen (gen, block){
+    const txt = gen.valueToCode(block, 'TXT');
+    const code = `print(str(${txt}))\n`;
+    return code;
+  }
 
 }
 
