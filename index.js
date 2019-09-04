@@ -58,6 +58,11 @@ class meowbit{
     // repl state
     this.state = 0;
     this.rstAfterStop = false;
+    const viewedMeowTutorial = localStorage.getItem("viewedMeowTutorial")
+    if (!viewedMeowTutorial){
+      runtime.showDeck('meowbit-tutorial');
+      localStorage.setItem("viewedMeowTutorial", 1);
+    }
   }
 
   onclose (){
