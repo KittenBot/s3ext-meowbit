@@ -142,11 +142,6 @@ class meowbit{
 
   }
 
-
-  onclose (){
-      this.session = null;
-  }
-
   // method required by vm runtime
   scan (){
       this.comm.getDeviceList().then(result => {
