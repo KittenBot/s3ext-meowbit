@@ -671,6 +671,23 @@ class meowbit{
         },
         '---',
         {
+          opcode: 'mb_button_get',
+          blockType: BlockType.BOOLEAN,
+          isEdgeActivated: false,
+          text: 'Button [BTN] Pressed',
+          func: 'noop',
+          arguments: {
+            BTN: {
+              type: ArgumentType.STRING,
+              menu: 'BTNLIST',
+              defaultValue: 'UP'
+            }
+          },
+          gen: {
+            micropy: this.btnGetGen
+          }
+        },
+        {
           opcode: 'mb_button_evt',
           blockType: BlockType.HAT,
           isEdgeActivated: false,
@@ -685,7 +702,8 @@ class meowbit{
           },
           gen: {
             micropy: this.btnEvtGen
-          }
+          },
+          hideFromPalette: true // not user friendly for non-os exec
         },
         '---',
         {
@@ -1084,6 +1102,9 @@ class meowbit{
   pinWriteGen (gen, block){
     const pin = gen.valueToCode(block, 'PIN')
     const lvl = gen.valueToCode(block, 'LVL')
+    if (!gen.variables_[`mb_${pin}`]){
+      gen.variables_[`mb_${pin}`] = `p_${pin} = Pin('${pin}', Pin.OUT_PP)\n`;
+    }
     if (lvl === 'on'){
       return `p_${pin}.high()\n`
     } else {
@@ -1093,6 +1114,10 @@ class meowbit{
 
   pinReadGen (gen, block){  
     const pin = gen.valueToCode(block, 'PIN')
+    // noob friendly
+    if (!gen.variables_[`mb_${pin}`]){
+      gen.variables_[`mb_${pin}`] = `p_${pin} = Pin('${pin}', Pin.IN, Pin.PULL_UP)\n`;
+    }
     return [`p_${pin}.value()`, 0]
   }
 
@@ -1300,6 +1325,13 @@ class meowbit{
   mb_button_evt (args) {
     // console.log("mqtt got" + args);
     return true;
+  }
+
+  btnGetGen (gen, block){
+    const btn = gen.valueToCode(block, 'BTN');
+    gen.variables_[`mb_${btn}`] = `btn_${btn} = Pin('${btn}', Pin.IN, Pin.PULL_UP)\n`;
+    const code = `btn_${btn}.value()`;
+    return [code, 0]
   }
 
   btnEvtGen (gen, block){
