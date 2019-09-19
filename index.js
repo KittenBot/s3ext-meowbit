@@ -117,6 +117,7 @@ class meowbit{
       this.lineBuffer = '';
       this.session.write('\x04');
       delete this.code
+      this.runtime.emit("extrunning", 1);
     } else if (this.state == 2){
       if (!this.lineBuffer.startsWith('OK')){
         console.log("Error exec code");
@@ -131,6 +132,7 @@ class meowbit{
         }
         this.session.write('\x02');
         this.state = 0;
+        this.runtime.emit("extrunning", 0);
         if (this.rstAfterStop){
           this.rstAfterStop = false;
           // force reset
