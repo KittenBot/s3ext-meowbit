@@ -669,6 +669,28 @@ class meowbit{
             micropy: this.pinAnalogGen
           }
         },
+        {
+          opcode: 'mb_lightsensor',
+          blockType: BlockType.REPORTER,
+          text: 'Light Strength',
+          func: 'noop',
+          arguments: {
+          },
+          gen: {
+            micropy: this.lightsensorGen
+          }
+        },
+        {
+          opcode: 'mb_temperature',
+          blockType: BlockType.REPORTER,
+          text: 'Temperature',
+          func: 'noop',
+          arguments: {
+          },
+          gen: {
+            micropy: this.temperatureGen
+          }
+        },
         '---',
         {
           opcode: 'mb_button_get',
@@ -983,6 +1005,7 @@ class meowbit{
           mb_servo_init: "Servo [SERVO] 初始化",
           mb_servo_angle: "Servo [SERVO] 角度[DEGREE]",
           mb_servo_pulse: "Servo [SERVO] 脉冲[PULSE]us",
+          mb_button_get: "按键 [BTN] 按下"
         },
       }
     }
@@ -1130,6 +1153,21 @@ class meowbit{
     const pin = gen.valueToCode(block, 'PIN')
     gen.functions_[`analog_${pin}`] = `analog_${pin} = ADC('${pin}')`
     return [`analog_${pin}.read()`, 0]
+  }
+
+  mb_lightsensor (gen, block){
+    gen.functions_[`lightsensor`] = `pin_light = ADC('LIGHT')`
+    return [`pin_light.read()`, 0]
+  }
+
+  mb_lightsensor (gen, block){
+    gen.imports_[`math`] = `import math\n`
+    gen.functions_[`adc2temp`] = `def adc2temp(adcValue, res=10000, beta=3300, norm=25.0, normread=10000, zero=273.5):
+  sensor = 4096.0*res/adcValue - res
+  value = (1.0 / ((math.log(sensor / normread) / beta) + (1.0 / (norm + zero)))) - zero
+  return value\n`
+    gen.functions_[`temperature`] = `pin_temp = ADC('TEMP')`
+    return [`adc2temp(pin_temp.read())`, 0]
   }
 
 
@@ -1374,6 +1412,7 @@ class meowbit{
     const code = `print(str(${txt}))\n`;
     return code;
   }
+
 
 }
 
