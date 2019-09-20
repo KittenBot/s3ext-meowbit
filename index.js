@@ -1005,7 +1005,9 @@ class meowbit{
           mb_servo_init: "Servo [SERVO] 初始化",
           mb_servo_angle: "Servo [SERVO] 角度[DEGREE]",
           mb_servo_pulse: "Servo [SERVO] 脉冲[PULSE]us",
-          mb_button_get: "按键 [BTN] 按下"
+          mb_button_get: "按键 [BTN] 按下",
+          mb_temperature: "温度",
+          mb_lightsensor: "光线强度",
         },
       }
     }
@@ -1155,12 +1157,12 @@ class meowbit{
     return [`analog_${pin}.read()`, 0]
   }
 
-  mb_lightsensor (gen, block){
+  lightsensorGen (gen, block){
     gen.functions_[`lightsensor`] = `pin_light = ADC('LIGHT')`
     return [`pin_light.read()`, 0]
   }
 
-  mb_lightsensor (gen, block){
+  temperatureGen (gen, block){
     gen.imports_[`math`] = `import math\n`
     gen.functions_[`adc2temp`] = `def adc2temp(adcValue, res=10000, beta=3300, norm=25.0, normread=10000, zero=273.5):
   sensor = 4096.0*res/adcValue - res
