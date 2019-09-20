@@ -919,7 +919,7 @@ class meowbit{
         LEDS: ['1', '2'],
         ONOFF: ['on', 'off'],
         PINS: ['P0', 'P1', 'P2', 'P3', 'P4', 'P5', 'P6', 'P7', 'P8', 'P9', 'P10', 'P11', 'P12', 'P13', 'P14', 'P15', 'P16'],
-        PINSANALOG: ['P0', 'P1', 'P2', 'P3', 'P4', 'P5', 'P8', 'P10', 'P12'],
+        PINSANALOG: ['P0', 'P1', 'P2', 'P3', 'P4', 'P8', 'P10', 'P12'],
         PINMODE: ['OUT', 'IN'],
         UARTLIST: [
           {text: '1 JAC', value: '1'},
@@ -977,7 +977,12 @@ class meowbit{
           mb_button_evt: "当按键 [BTN] 按下",
           mb_buzz_music: "蜂鸣器音符 [NOTES]",
           mb_buzz_tone: "蜂鸣器 频率[FREQ] 延时[DELAY]",
-          mb_runtime: "运行时间 (ms)"
+          mb_runtime: "运行时间 (ms)",
+          mb_imu_acc: "加速度 [AXIS]",
+          mb_imu_gyro: "转向加速度 [AXIS]",
+          mb_servo_init: "Servo [SERVO] 初始化",
+          mb_servo_angle: "Servo [SERVO] 角度[DEGREE]",
+          mb_servo_pulse: "Servo [SERVO] 脉冲[PULSE]us",
         },
       }
     }
