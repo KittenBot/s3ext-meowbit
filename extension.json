@@ -8,7 +8,9 @@
     "fslib": [
         "tft.py",
         "mpu6050.py",
-        "buzz.py"
+        "buzz.py",
+        "turtle.py",
+        "unicode12.bin"
     ],
     "shopLink": "https://item.taobao.com/item.htm?spm=a230r.1.14.6.2ce5448d0pYm0Q&id=586210602413&ns=1&abbucket=5",
     "extensions": ["meowbit"],
@@ -17,9 +19,6 @@
         "imports": {
             "meow": "from pyb import *\n"
         }
-    },
-    "editorButtons": {
-        "Stop": {"func": "micropyStop", "icon": "stop"}
     },
     "image": "meowbit.png"
 }
