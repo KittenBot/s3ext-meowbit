@@ -177,15 +177,21 @@ class meowbit{
 
   micropyExec (code){
     if (!this.session){
-      vm.emit('showAlert', {type: 'error', msg: `not connected`});
+      const msg = this.locale === 'zh-cn' ? "请连接上喵比特串口" : "Connect Meowbit's serial first";
+      vm.emit('showAlert', {type: 'error', msg: msg});
       return;
     }
     // goto repl mode first
     this.code = code;
-    this.session.write('\r\x01') // ctrl+A to raw repl mode
+    this.session.write('\r\x03\x03\x01') // ctrl+A to raw repl mode
   }
 
   micropyFlash (code){
+    if (!this.session){
+      const msg = this.locale === 'zh-cn' ? "请连接上喵比特串口" : "Connect Meowbit's serial first";
+      vm.emit('showAlert', {type: 'error', msg: msg});
+      return;
+    }
     let fileName = 'main.py';
     if (typeof code === 'object'){
       fileName = code.fileName;
@@ -200,7 +206,7 @@ class meowbit{
     loader += 'f.close()\n'
     this.code = loader;
     this.rstAfterStop = true;
-    this.session.write('\r\x01') // ctrl+A to raw repl mode
+    this.session.write('\r\x03\x03\x01') // ctrl+A to raw repl mode
   }
 
   onFlashError (){
