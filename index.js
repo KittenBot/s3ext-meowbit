@@ -200,6 +200,7 @@ class meowbit{
     let loader = `f=open("${fileName}","wb")\n`
     const lines = code.split('\n');
     loader = lines.reduce((a, l) => {
+      l = l.replace(/\\x/g, "\\\\x")
       l = l.replace(/"/g, "'")
       return a+=`f.write("${l}\\n")\n`
     }, loader);
@@ -1186,7 +1187,7 @@ class meowbit{
     gen.functions_[`adc2temp`] = `def adc2temp(adcValue, res=10000, beta=3300, norm=25.0, normread=10000, zero=273.5):
   sensor = 4096.0*res/adcValue - res
   value = (1.0 / ((math.log(sensor / normread) / beta) + (1.0 / (norm + zero)))) - zero
-  return value\n`
+  return int(value)\n`
     gen.functions_[`temperature`] = `pin_temp = ADC('TEMP')`
     return [`adc2temp(pin_temp.read())`, 0]
   }
@@ -1394,7 +1395,7 @@ class meowbit{
   btnGetGen (gen, block){
     const btn = gen.valueToCode(block, 'BTN');
     gen.variables_[`mb_${btn}`] = `btn_${btn} = Pin('${btn}', Pin.IN, Pin.PULL_UP)\n`;
-    const code = `btn_${btn}.value()`;
+    const code = `(btn_${btn}.value() == 0)`;
     return [code, 0]
   }
 
