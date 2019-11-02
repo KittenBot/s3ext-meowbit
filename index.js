@@ -286,6 +286,19 @@ class meowbit{
         },
         '---',
         {
+          opcode: 'mb_tft_clear',
+          blockType: BlockType.COMMAND,
+          arguments: {
+            COLOR: {
+              type: ArgumentType.COLORRGB
+            }
+          },
+          text: 'TFT Clear',
+          gen: {
+            micropy: this.tftClearGen
+          }
+        },
+        {
           opcode: 'mb_tft_fill',
           blockType: BlockType.COMMAND,
           arguments: {
@@ -1084,6 +1097,12 @@ class meowbit{
     const COLOR = args.COLOR;
 
     return this.write(`M0 \n`);
+  }
+
+  tftClearGen (){
+    tftCommon(gen);
+    const code = `fb.fill(0)\n`
+    return code;
   }
 
   tftFillGen (gen, block){
